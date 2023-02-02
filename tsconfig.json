@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "lib": ["es5", "es6", "dom"],
+        "allowSyntheticDefaultImports": true,
+        "noImplicitAny": true,
+        "module": "es6",
+        "target": "es5",
+        "allowJs": false,
+        "strict": true,
+        "skipLibCheck": true
+    },
+    "files": ["src/index.ts"]
+}
