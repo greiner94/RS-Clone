@@ -12,10 +12,10 @@ export default function router() {
   };
 
   function getPagePath(listOfPages: string[], pathFromUrl: string) {
-    if (pathFromUrl.length === 1) {
+    if (pathFromUrl.length === 1 || pathFromUrl.includes('index')) {
       return './';
-    } else if (listOfPages.includes(pathFromUrl)) {
-      return `./${pathFromUrl}.html`;
+    } else if (listOfPages.includes(pathFromUrl.slice(1, -5))) {
+      return `.${pathFromUrl}`;
     } else {
       return './404.html';
     }
