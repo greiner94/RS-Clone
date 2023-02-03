@@ -1,5 +1,7 @@
 import functions from "./";
 
+const listOfPages = ['404', '/', 'stage-1', 'stage-2', 'stage-3'];
+
 export default function router() {
   const route = (event: Event) => {
     const target = event.target as HTMLAnchorElement;
@@ -8,20 +10,20 @@ export default function router() {
     window.history.pushState({}, "", target.href);
     handleLocation();
   };
-  interface Routes {
-    [key: string]: string;
+
+  function getPagePath(listOfPages: string[], pathFromUrl: string) {
+    if (pathFromUrl.length === 1) {
+      return './';
+    } else if (listOfPages.includes(pathFromUrl)) {
+      return `./${pathFromUrl}.html`;
+    } else {
+      return './404.html';
+    }
   }
-  const routes: Routes = {
-    '/404.html': "./404.html",
-    "/": "./index.html",
-    "/stage-1.html": "./stage-1.html",
-    "/stage-2.html": "./stage-2.html",
-    "/stage-3.html": "./stage-3.html",
-  };
 
   const handleLocation = async () => {
     const path = window.location.pathname;
-    const pagePath = routes[path] || routes['404'];
+    const pagePath = getPagePath(listOfPages, path);
     const html = await fetch(pagePath)
     .then((data) => data.text())
     .then((html) => new DOMParser().parseFromString(html, 'text/html'));
