@@ -1,0 +1,28 @@
+.header {
+ 
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 40px 60px 32px 60px;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    column-gap: 21px;
+    font-weight: 900;
+    font-size: 22px;
+    color: #212121;
+    
+    &:hover {
+      filter:opacity(.85);
+    }
+  }
+
+  &__logo-title {
+    span {
+      &:last-child {
+        color: #47ABD7;
+      }
+    }
+  }
+
+}
