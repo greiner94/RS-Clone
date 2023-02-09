@@ -80,6 +80,7 @@ a{
     }
 }
 .main {
+    background: var(--bg-color);
     &__content-wrap {
         display: flex;
         margin-top: 65px;
@@ -87,7 +88,7 @@ a{
         padding-bottom: 30px;
     }
     &__content {
-        flex-basis: 70%;
+        flex-basis: 74%;
     }
         
     &__list {

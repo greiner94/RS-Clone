@@ -1,5 +1,4 @@
 import Breadcrumbs from '../../assets/data/breadcrumbs';
-import MainPageBtn from '../../assets/data/main-page-btn';
 import websiteUrlImg from '../../assets/images/smartphone/website-template-picture.jpg';
 
 export function drawWebsiteURLPage() {
@@ -15,35 +14,47 @@ export function drawWebsiteURLPage() {
     mainContent.className = 'main__content';
     mainContent.innerHTML = `
     <div class="main__content-wrapper">
-                    <div class="main__content-name-input">
-                        <div class="main__content-name-input-wrapper">
-                            <div class="main__content-name-input-title">
-                                Name your QR code*
-                            </div>
-                            <div class="main__content-name-input-block">
-                                <input type="text" name="name" placeholder="e.g. My first QR code">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main__content-address-input">
-                        <div class="main__content-address-input-wrapper">
-                            <div class="main__content-address-input-top">
-                                <div class="main__content-address-input-top-content">
-                                    <p class="main__content-address-input-top-content-title">Website address</p>
-                                    <p class="main__content-address-input-top-content-subtitle">Enter the URL to which the QR code will link</p>
-                                </div>
-                            </div>
-                            <div class="main__content-address-input-bottom">
-                                <div class="main__content-address-input-title">
-                                    Website URL*
-                                </div>
-                                <div class="main__content-address-input-block">
-                                    <input type="text" name="url" placeholder="e.g. www.mywebsite.com">
-                                </div>
-                            </div>
-                        </div>
+    <div class="main__content-title">
+        <h3>2. Add content to the Website URL QR code</h3>
+    </div>
+    <div class="main__content-inputs-section">
+        <div class="main__content-name-input">
+            <div class="main__content-name-input-wrapper">
+                <div class="main__content-name-input-title">
+                    Name your QR code*
+                </div>
+                <div class="main__content-name-input-block">
+                    <input type="text" required name="name" placeholder="e.g. My first QR code">
+                </div>
+            </div>
+        </div>
+        <div class="main__content-address-input">
+            <div class="main__content-address-input-wrapper">
+                <div class="main__content-address-input-top">
+                    <div class="main__content-address-input-top-content">
+                        <p class="main__content-address-input-top-content-title">Website address</p>
+                        <p class="main__content-address-input-top-content-subtitle">Enter the URL to which the QR code will link</p>
                     </div>
                 </div>
+                <div class="main__content-address-input-bottom">
+                    <div class="main__content-address-input-title">
+                        Website URL*
+                    </div>
+                    <div class="main__content-address-input-block">
+                        <input type="text" required name="url" placeholder="e.g. www.mywebsite.com">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-action">
+            <a href="#main"><button class="btn btn-back">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.95 18.43a2.03 2.03 0 0 0 0-2.77L12 11.5l3.95-4.16a2.03 2.03 0 0 0 0-2.77 1.8 1.8 0 0 0-2.63 0l-5.27 5.54a2.03 2.03 0 0 0 0 2.77l5.27 5.55a1.8 1.8 0 0 0 2.63 0Z" fill="var(--arrow-left-bold-icon-color, currentColor)"></path></svg>
+            <span class="btn-back-span">Back</span>
+        </button></a>
+        <a href="#customize/"><button class="btn btn-next">Next</button></a>
+    </div>
+</div>
     `;
     smartphoneBlock.className = 'smartphone';
     drawBreadcrumbs(breadcrumbsBlock);
@@ -54,13 +65,6 @@ export function drawWebsiteURLPage() {
     allWrapper.append(contentWrap);
     fragmentStartPage.append(allWrapper);
     return fragmentStartPage;
-}
-
-function drawHeaderBlock(parentElement: HTMLElement): void {
-    const logo = <HTMLHeadElement>document.createElement('h1');
-    logo.innerHTML = '<span>QR</span><span class="logo__blue">Word</span>';
-    logo.className = 'logo';
-    parentElement.append(logo);
 }
 
 function drawBreadcrumbs(parentElement: HTMLElement): void {
@@ -83,43 +87,6 @@ function drawBreadcrumbs(parentElement: HTMLElement): void {
     ol.className = 'breadcrumbs__list';
     fragmentBreadcrumbs.append(ol);
     parentElement.append(fragmentBreadcrumbs);
-}
-
-// export function drawMainContent(parentElement: HTMLElement): void {
-//     const fragmentMainContent = <DocumentFragment>document.createDocumentFragment();
-//     const ul = <HTMLUListElement>document.createElement('ul');
-//     const length = MainPageBtn.length;
-//     for (let i = 0; i < length; i += 1) {
-//         const li = <HTMLLIElement>document.createElement('li');
-//         const a = (document.createElement('a') as unknown) as HTMLLinkElement;
-//         a.href = `#${MainPageBtn[i].text.split(' ').join('')}`;
-//         const wrapTextCont = <HTMLDivElement>document.createElement('div');
-//         wrapTextCont.className = `main__wrap-text`;
-//         li.className = 'main__btn-block';
-//         li.innerHTML = `<span class="main__svg-icon">${MainPageBtn[i].svg}</span>`;
-//         wrapTextCont.innerHTML = `<p class="main__btn-name">${MainPageBtn[i].text}</p>
-//                                    <p class="main__btn-desc">${MainPageBtn[i].desc}</p>`;
-
-//         li.append(wrapTextCont);
-//         a.append(li);
-//         ul.append(a);
-//     }
-//     ul.className = 'main__list';
-//     fragmentMainContent.append(ul);
-//     parentElement.append(fragmentMainContent);
-// }
-
-function drawFooterBlock(parentElement: HTMLElement): void {
-    const fragmentFooter = <DocumentFragment>document.createDocumentFragment();
-    const rsLogo = <HTMLElement>document.createElement('div');
-    const team = <HTMLElement>document.createElement('div');
-    const projectName = <HTMLElement>document.createElement('div');
-    rsLogo.className = 'footer__rs-logo';
-    team.className = 'footer__team';
-    projectName.className = 'footer__project-name';
-    team.innerHTML = '<span>@grainer94</span><span>@svetlanahrhr</span><span>@dairinka</span>';
-    fragmentFooter.append(rsLogo, team, projectName);
-    parentElement.append(fragmentFooter);
 }
 
 export function drawSmartphoneBlock(parentElement: HTMLElement): void {
