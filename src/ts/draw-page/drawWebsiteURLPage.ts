@@ -24,7 +24,7 @@ export function drawWebsiteURLPage() {
                     Name your QR code*
                 </div>
                 <div class="main__content-name-input-block">
-                    <input type="text" required name="name" placeholder="e.g. My first QR code">
+                    <input type="text" id="name" required name="name" placeholder="e.g. My first QR code">
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@ export function drawWebsiteURLPage() {
                         Website URL*
                     </div>
                     <div class="main__content-address-input-block">
-                        <input type="text" required name="url" placeholder="e.g. www.mywebsite.com">
+                        <input type="text" id="url" required name="url" placeholder="e.g. www.mywebsite.com">
                     </div>
                 </div>
             </div>
