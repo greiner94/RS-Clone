@@ -1,10 +1,9 @@
 export default function infoFromInputs() {
-    const name = (document.getElementById('name') as HTMLInputElement).value;
-    const url = (document.getElementById('url') as HTMLInputElement).value;
+    const inputs = Array.from(document.querySelectorAll('input'));
 
-    if (!name || !url) {
-        return;
-    }
-    console.log(name);
-    console.log(url);
+    console.log(inputs);
+
+    const valuesOfInputs = inputs.map((input) => input.value);
+
+    console.log(valuesOfInputs);
 }

@@ -1,5 +1,5 @@
 import { drawMainPage } from '../draw-page/draw-main-page';
-import { drawWebsiteURLPage } from '../draw-page/drawWebsiteURLPage';
+import { drawWebsiteTemplatesPage } from '../draw-page/drawWebsiteTemplatesPage';
 import infoFromInputs from '../input-hendlers/infoFromInputs';
 import { breadcrumbsHighlight } from '../state-element';
 
@@ -12,7 +12,8 @@ export default function renderNewPage(hash: string) {
     }
     if (hash.includes('templates/')) {
         container.innerHTML = '';
-        container.append(drawWebsiteURLPage());
+        console.log(hash.slice(10));
+        container.append(drawWebsiteTemplatesPage(hash.slice(10)));
         breadcrumbsHighlight();
         document.body.addEventListener('click', (e) => {
             if ((e.target as HTMLElement).classList.contains('btn-next')) {

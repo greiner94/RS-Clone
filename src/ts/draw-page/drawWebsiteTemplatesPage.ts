@@ -1,69 +1,72 @@
 import Breadcrumbs from '../../assets/data/breadcrumbs';
+import { Templates } from '../../assets/data/templates';
 import websiteUrlImg from '../../assets/images/smartphone/website-template-picture.jpg';
 
-export function drawWebsiteURLPage() {
+interface ITemlate {
+    nameOfTemplate: string;
+    title: string;
+    inputs: { name: string; inputTitle: string; placeholder: string }[];
+    image?: string;
+}
+
+export function drawWebsiteTemplatesPage(url: string) {
+    let nameOfTemlate;
+
+    if (url.includes('URL')) {
+        nameOfTemlate = Templates[0];
+    } else if (url.includes('Text')) {
+        nameOfTemlate = Templates[1];
+    }
+
     const fragmentStartPage = <DocumentFragment>document.createDocumentFragment();
-    const allWrapper = <HTMLDivElement>document.createElement('div');
-    const breadcrumbsBlock = <HTMLElement>document.createElement('div');
-    const contentWrap = <HTMLElement>document.createElement('div');
-    const mainContent = <HTMLElement>document.createElement('div');
-    const smartphoneBlock = <HTMLElement>document.createElement('div');
-    allWrapper.className = 'container';
-    breadcrumbsBlock.className = 'breadcrumbs';
-    contentWrap.className = 'main__content-wrap';
-    mainContent.className = 'main__content';
-    mainContent.innerHTML = `
-    <div class="main__content-wrapper">
-    <div class="main__content-title">
-        <h3>2. Add content to the Website URL QR code</h3>
-    </div>
-    <div class="main__content-inputs-section">
-        <div class="main__content-name-input">
-            <div class="main__content-name-input-wrapper">
-                <div class="main__content-name-input-title">
-                    Name your QR code*
-                </div>
-                <div class="main__content-name-input-block">
-                    <input type="text" id="name" required name="name" placeholder="e.g. My first QR code">
-                </div>
-            </div>
-        </div>
-        <div class="main__content-address-input">
-            <div class="main__content-address-input-wrapper">
-                <div class="main__content-address-input-top">
-                    <div class="main__content-address-input-top-content">
-                        <p class="main__content-address-input-top-content-title">Website address</p>
-                        <p class="main__content-address-input-top-content-subtitle">Enter the URL to which the QR code will link</p>
-                    </div>
-                </div>
-                <div class="main__content-address-input-bottom">
-                    <div class="main__content-address-input-title">
-                        Website URL*
-                    </div>
-                    <div class="main__content-address-input-block">
-                        <input type="text" id="url" required name="url" placeholder="e.g. www.mywebsite.com">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="button-action">
-            <a href="#main"><button class="btn btn-back">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.95 18.43a2.03 2.03 0 0 0 0-2.77L12 11.5l3.95-4.16a2.03 2.03 0 0 0 0-2.77 1.8 1.8 0 0 0-2.63 0l-5.27 5.54a2.03 2.03 0 0 0 0 2.77l5.27 5.55a1.8 1.8 0 0 0 2.63 0Z" fill="var(--arrow-left-bold-icon-color, currentColor)"></path></svg>
-            <span class="btn-back-span">Back</span>
-        </button></a>
-        <a href="#customize/"><button class="btn btn-next">Next</button></a>
-    </div>
-</div>
+    if (nameOfTemlate) {
+        console.log({ nameOfTemlate });
+
+        const container = <HTMLDivElement>document.createElement('div');
+        const breadcrumbsBlock = <HTMLElement>document.createElement('div');
+        const contentWrap = <HTMLElement>document.createElement('div');
+        const mainContent = <HTMLElement>document.createElement('div');
+        const smartphoneBlock = <HTMLElement>document.createElement('div');
+        const contentWrapper = <HTMLElement>document.createElement('div');
+        const contentTitle = <HTMLElement>document.createElement('div');
+        const contentInputsSection = <HTMLElement>document.createElement('div');
+        const buttonAction = <HTMLElement>document.createElement('div');
+
+        container.className = 'container';
+        breadcrumbsBlock.className = 'breadcrumbs';
+        contentWrap.className = 'main__content-wrap';
+        mainContent.className = 'main__content';
+        contentWrapper.className = 'main__content-wrapper';
+        contentTitle.className = 'main__content-title';
+        contentInputsSection.className = 'main__content-inputs-section';
+        buttonAction.className = 'button-action';
+        const title = nameOfTemlate.title;
+        contentTitle.innerHTML = `<h3>2. ${title}</h3>`;
+        buttonAction.innerHTML = `
+    <a href="#main"><button class="btn btn-back">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.95 18.43a2.03 2.03 0 0 0 0-2.77L12 11.5l3.95-4.16a2.03 2.03 0 0 0 0-2.77 1.8 1.8 0 0 0-2.63 0l-5.27 5.54a2.03 2.03 0 0 0 0 2.77l5.27 5.55a1.8 1.8 0 0 0 2.63 0Z" fill="var(--arrow-left-bold-icon-color, currentColor)"></path>
+        </svg>
+        <span class="btn-back-span">Back</span>
+        </button>
+    </a>
+    <a href="#customize/"><button class="btn btn-next">Next</button></a>
     `;
-    smartphoneBlock.className = 'smartphone';
-    drawBreadcrumbs(breadcrumbsBlock);
-    drawSmartphoneBlock(smartphoneBlock);
-    contentWrap.append(mainContent);
-    contentWrap.append(smartphoneBlock);
-    allWrapper.append(breadcrumbsBlock);
-    allWrapper.append(contentWrap);
-    fragmentStartPage.append(allWrapper);
+        contentWrapper.append(contentTitle);
+        drawInputs(contentInputsSection, nameOfTemlate);
+        contentWrapper.append(contentInputsSection);
+        contentWrapper.append(buttonAction);
+
+        mainContent.append(contentWrapper);
+
+        smartphoneBlock.className = 'smartphone';
+        drawBreadcrumbs(breadcrumbsBlock);
+        drawSmartphoneBlock(smartphoneBlock);
+        contentWrap.append(mainContent);
+        contentWrap.append(smartphoneBlock);
+        container.append(breadcrumbsBlock);
+        container.append(contentWrap);
+        fragmentStartPage.append(container);
+    }
     return fragmentStartPage;
 }
 
@@ -87,6 +90,27 @@ function drawBreadcrumbs(parentElement: HTMLElement): void {
     ol.className = 'breadcrumbs__list';
     fragmentBreadcrumbs.append(ol);
     parentElement.append(fragmentBreadcrumbs);
+}
+
+function drawInputs(contentInputsSection: HTMLElement, nameOfTemlate: ITemlate) {
+    const length = Templates.length;
+    for (let i = 0; i < length; i++) {
+        const contentInput = <HTMLElement>document.createElement('div');
+        contentInput.className = 'main__content-name-input';
+        const contentInputWrapper = <HTMLElement>document.createElement('div');
+        contentInputWrapper.className = 'main__content-name-input-wrapper';
+        const contentInputTitle = <HTMLElement>document.createElement('div');
+        contentInputTitle.className = 'main__content-name-input-title';
+        const contentInputBlock = <HTMLElement>document.createElement('div');
+        contentInputBlock.className = 'main__content-name-input-block';
+        contentInputTitle.innerHTML = `${nameOfTemlate.inputs[i].inputTitle}`;
+        contentInputBlock.innerHTML = `
+        <input type="text" required placeholder="${nameOfTemlate.inputs[i].placeholder}">`;
+        contentInputWrapper.append(contentInputTitle);
+        contentInputWrapper.append(contentInputBlock);
+        contentInput.append(contentInputWrapper);
+        contentInputsSection.append(contentInput);
+    }
 }
 
 export function drawSmartphoneBlock(parentElement: HTMLElement): void {
