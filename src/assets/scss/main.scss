@@ -1,22 +1,6 @@
-:root {
-    --bg-color: #F5F5F5;
-    --color-blue: #47abd7;
-    --color-light-blue: #aee7ff;
-    --color-light-grey: #c1c1c1;
-    --color-dark-gray: #212121;
-    --color-crimson: #ff26b5;
-    --color-white: #ffffff;
-    --color-text: #000000;
-    --color-white-text: #ffffff;
-    --h1-size: 22px;
-    --h2-size: 28px;
-    --h3-size: 20px;
-    --text-size: 16px;
-    --h1-font: "Arial Black";
-    --h2-font: "Arial Black";
-    --h3-font: "Arial Bold";  
-    --breadcrumbs-font: "Arial Black";  
-    --text-font: "Arial";
+@import './root.scss';
+body {
+    background: var(--bg-color);
 }
 a{
     text-decoration: none;
@@ -27,7 +11,6 @@ a{
     width: 100vw;
     max-width: 1440px;
     margin: 0 auto;
-    background: var(--bg-color);
     font-size: 16px;
     font-family: var(--text-font);
     padding: 40px 60px 0;
@@ -111,10 +94,18 @@ a{
         height: 75px;
         display: grid;
         grid-template-columns: 90px auto;
-        &:hover{
-            background: #7ba3b5a7;
+        transition: background 200ms ease-in;
+
+        &:hover {
+            background: var(--color-blue);
             cursor: pointer;
         }
+
+        &:hover .btn-svg-colors{
+            --color-main: #ffffff;
+            --color-accent: #47abd7;            
+        }
+      
     }
     &__svg-icon {
         align-self: center;
@@ -125,6 +116,11 @@ a{
         font-weight: bold;
         font-size: var(--h3-size);
     }
+}
+.btn-svg-colors{
+    --color-main: #47abd7;
+    --color-accent: #ffffff;
+    transition: all 200ms ease-in-out;
 }
 
 .smartphone {
@@ -176,9 +172,7 @@ a{
         &__btn-block {
             width: max-content;
             min-width: 400px;
-            &:hover{
-                background-color: #47abd7;
-            }  
+            
         }
        
     }
@@ -230,6 +224,11 @@ a{
     }
     .footer {
         padding:13px 20px;
+    }
+}
+@media screen and (max-width: 810px) {
+    .breadcrumbs {
+        margin-left: 60px;
     }
 }
 @media screen and (max-width: 585px) {

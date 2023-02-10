@@ -36,13 +36,6 @@ export function drawMainPage() {
     return fragmentStartPage;
 }
 
-function drawHeaderBlock(parentElement: HTMLElement): void {
-    const logo = <HTMLHeadElement>document.createElement('h1');
-    logo.innerHTML = '<span>QR</span><span class="logo__blue">Word</span>';
-    logo.className = 'logo';
-    parentElement.append(logo);
-}
-
 function drawBreadcrumbs(parentElement: HTMLElement): void {
     const fragmentBreadcrumbs = <DocumentFragment>document.createDocumentFragment();
     const ol = document.createElement('ol');
@@ -81,19 +74,6 @@ export function drawMainContent(parentElement: HTMLElement): void {
     ul.className = 'main__list';
     fragmentMainContent.append(ul);
     parentElement.append(fragmentMainContent);
-}
-
-function drawFooterBlock(parentElement: HTMLElement): void {
-    const fragmentFooter = <DocumentFragment>document.createDocumentFragment();
-    const rsLogo = <HTMLElement>document.createElement('div');
-    const team = <HTMLElement>document.createElement('div');
-    const projectName = <HTMLElement>document.createElement('div');
-    rsLogo.className = 'footer__rs-logo';
-    team.className = 'footer__team';
-    projectName.className = 'footer__project-name';
-    team.innerHTML = '<span>@grainer94</span><span>@svetlanahrhr</span><span>@dairinka</span>';
-    fragmentFooter.append(rsLogo, team, projectName);
-    parentElement.append(fragmentFooter);
 }
 
 export function drawSmartphoneBlock(parentElement: HTMLElement): void {
