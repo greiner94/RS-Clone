@@ -1,25 +1,25 @@
 import Breadcrumbs from '../../assets/data/breadcrumbs';
 import { Templates } from '../../assets/data/templates';
-
+import inputConstructor from './input/inputConstructor';
+import { getInputData } from './input/getInputData';
+import { Template } from 'webpack';
 interface ITemlate {
     nameOfTemplate: string;
     title: string;
-    inputs: { name: string; inputTitle: string; placeholder: string }[];
+    inputs?: { name: string; inputTitle: string; placeholder: string }[];
     mainContent?: string;
 }
 
 export function drawWebsiteTemplatesPage(url: string) {
-    let nameOfTemlate;
-
-    if (url.includes('URL')) {
-        nameOfTemlate = Templates[0];
-    } else if (url.includes('Text')) {
-        nameOfTemlate = Templates[1];
-    }
-
+    const partUrlArr = url.split('/');
+    const page = partUrlArr[partUrlArr.length - 1];
+    const templateIndex: number = Templates.findIndex(({ nameOfTemplate }) => page === nameOfTemplate);
     const fragmentStartPage = <DocumentFragment>document.createDocumentFragment();
+    const nameOfTemlate = Templates[templateIndex];
+    console.log('templateIndex', templateIndex);
+
     if (nameOfTemlate) {
-        console.log({ nameOfTemlate });
+        console.log(nameOfTemlate);
 
         const container = <HTMLDivElement>document.createElement('div');
         const breadcrumbsBlock = <HTMLElement>document.createElement('div');
@@ -40,7 +40,7 @@ export function drawWebsiteTemplatesPage(url: string) {
         contentInputsSection.className = 'main__content-inputs-section';
         buttonAction.className = 'button-action';
         const title = nameOfTemlate.title;
-        contentTitle.innerHTML = `<h3>2. ${title}</h3>`;
+        contentTitle.innerHTML = `<h2>${title}</h2>`;
         buttonAction.innerHTML = `
     <a href="#main"><button class="btn btn-back">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.95 18.43a2.03 2.03 0 0 0 0-2.77L12 11.5l3.95-4.16a2.03 2.03 0 0 0 0-2.77 1.8 1.8 0 0 0-2.63 0l-5.27 5.54a2.03 2.03 0 0 0 0 2.77l5.27 5.55a1.8 1.8 0 0 0 2.63 0Z" fill="var(--arrow-left-bold-icon-color, currentColor)"></path>
@@ -51,7 +51,7 @@ export function drawWebsiteTemplatesPage(url: string) {
     <a href="#customize/"><button class="btn btn-next">Next</button></a>
     `;
         contentWrapper.append(contentTitle);
-        drawInputs(contentInputsSection, nameOfTemlate);
+        contentWrapper.append(inputConstructor(getInputData(page)));
         contentWrapper.append(contentInputsSection);
         contentWrapper.append(buttonAction);
 
@@ -91,26 +91,26 @@ function drawBreadcrumbs(parentElement: HTMLElement): void {
     parentElement.append(fragmentBreadcrumbs);
 }
 
-function drawInputs(contentInputsSection: HTMLElement, nameOfTemlate: ITemlate) {
-    const length = Templates.length;
-    for (let i = 0; i < length; i++) {
-        const contentInput = <HTMLElement>document.createElement('div');
-        contentInput.className = 'main__content-name-input';
-        const contentInputWrapper = <HTMLElement>document.createElement('div');
-        contentInputWrapper.className = 'main__content-name-input-wrapper';
-        const contentInputTitle = <HTMLElement>document.createElement('div');
-        contentInputTitle.className = 'main__content-name-input-title';
-        const contentInputBlock = <HTMLElement>document.createElement('div');
-        contentInputBlock.className = 'main__content-name-input-block';
-        contentInputTitle.innerHTML = `${nameOfTemlate.inputs[i].inputTitle}`;
-        contentInputBlock.innerHTML = `
-        <input type="text" required placeholder="${nameOfTemlate.inputs[i].placeholder}">`;
-        contentInputWrapper.append(contentInputTitle);
-        contentInputWrapper.append(contentInputBlock);
-        contentInput.append(contentInputWrapper);
-        contentInputsSection.append(contentInput);
-    }
-}
+// function drawInputs(contentInputsSection: HTMLElement, nameOfTemlate: ITemlate) {
+//     const length = Templates.length;
+//     for (let i = 0; i < length; i++) {
+//         const contentInput = <HTMLElement>document.createElement('div');
+//         contentInput.className = 'main__content-name-input';
+//         const contentInputWrapper = <HTMLElement>document.createElement('div');
+//         contentInputWrapper.className = 'main__content-name-input-wrapper';
+//         const contentInputTitle = <HTMLElement>document.createElement('div');
+//         contentInputTitle.className = 'main__content-name-input-title';
+//         const contentInputBlock = <HTMLElement>document.createElement('div');
+//         contentInputBlock.className = 'main__content-name-input-block';
+//         contentInputTitle.innerHTML = `${nameOfTemlate.inputs[i].inputTitle}`;
+//         contentInputBlock.innerHTML = `
+//         <input type="text" required placeholder="${nameOfTemlate.inputs[i].placeholder}">`;
+//         contentInputWrapper.append(contentInputTitle);
+//         contentInputWrapper.append(contentInputBlock);
+//         contentInput.append(contentInputWrapper);
+//         contentInputsSection.append(contentInput);
+//     }
+// }
 
 export function drawSmartphoneBlock(parentElement: HTMLElement, mainContent?: string): void {
     const phone = <HTMLElement>document.createElement('div');

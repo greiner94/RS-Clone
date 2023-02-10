@@ -14,7 +14,7 @@ export default function renderNewPage(hash: string) {
         container.innerHTML = '';
         console.log(hash.slice(10));
         container.append(drawWebsiteTemplatesPage(hash.slice(10)));
-        // breadcrumbsHighlight();
+        //breadcrumbsHighlight();
         document.body.addEventListener('click', (e) => {
             if ((e.target as HTMLElement).classList.contains('btn-next')) {
                 // Пока сделала вызов функции из страницы с полями ввода инфы, эта функция должна находить значения инпутов
@@ -24,7 +24,9 @@ export default function renderNewPage(hash: string) {
         });
     }
     if (hash.includes('customize/')) {
-        container.innerHTML = 'URL сменился на customize тут должна быть 3 страница';
+        //container.innerHTML = 'URL сменился на customize тут должна быть 3 страница';
         // breadcrumbsHighlight();
+        container.innerHTML = '';
+        container.append(drawWebsiteTemplatesPage('customize'));
     }
 }

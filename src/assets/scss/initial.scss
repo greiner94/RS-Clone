@@ -4,9 +4,9 @@ html {
     height: 100%;
 }
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 10px;
+    max-width: 1440px;
+    //margin: 0 auto;
+    //padding: 0 10px;
 }
 // .header{
 //       display: flex;
@@ -20,6 +20,8 @@ html {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 .main {
     flex: 1 1 auto;
