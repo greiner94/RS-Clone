@@ -1,4 +1,6 @@
-const CALENDAR = [
+import { BlockInputData } from '../../../ts/type/type';
+
+const CALENDAR: BlockInputData[] = [
     {
         blockName: 'Calendar',
         desc: 'Specify the date of the event to quickly add to the calendar',

@@ -1,4 +1,5 @@
-const VCARD = [
+import { BlockInputData } from '../../../ts/type/type';
+const VCARD: BlockInputData[] = [
     {
         blockName: 'Personal information',
         desc: '',

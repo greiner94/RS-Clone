@@ -1,4 +1,5 @@
-const WIFI = [
+import { BlockInputData } from '../../../ts/type/type';
+const WIFI: BlockInputData[] = [
     {
         blockName: 'WI-FI',
         desc: 'Provide your Wi-Fi name, the type of encription and your password',

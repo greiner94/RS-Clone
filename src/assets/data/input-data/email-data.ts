@@ -1,4 +1,5 @@
-const EMAIL = [
+import { BlockInputData } from '../../../ts/type/type';
+const EMAIL: BlockInputData[] = [
     {
         blockName: 'Email address',
         desc: '',

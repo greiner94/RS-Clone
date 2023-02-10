@@ -1,4 +1,5 @@
-const WEBSITE = [
+import { BlockInputData } from '../../../ts/type/type';
+const WEBSITE: BlockInputData[] = [
     {
         blockName: 'Website address',
         desc: 'Enter the URL to which the QR code will link',

@@ -12,3 +12,7 @@ export interface BlockInputData {
     svgArr?: string[];
     content: InputData[];
 }
+
+export interface InputDataUrl {
+    [key: string]: BlockInputData[];
+}

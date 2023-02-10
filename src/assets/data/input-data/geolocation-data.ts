@@ -1,4 +1,5 @@
-const GEOLOCATION = [
+import { BlockInputData } from '../../../ts/type/type';
+const GEOLOCATION: BlockInputData[] = [
     {
         blockName: 'Geolocation',
         desc: '',

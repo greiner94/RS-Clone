@@ -1,4 +1,5 @@
-const PHONE = [
+import { BlockInputData } from '../../../ts/type/type';
+const PHONE: BlockInputData[] = [
     {
         blockName: 'Phone number',
         desc: 'Enter the phone number for share by QR code',

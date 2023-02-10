@@ -1,4 +1,5 @@
-const SMS = [
+import { BlockInputData } from '../../../ts/type/type';
+const SMS: BlockInputData[] = [
     {
         blockName: 'SMS messange',
         desc: '',

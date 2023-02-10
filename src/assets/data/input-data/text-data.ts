@@ -1,4 +1,5 @@
-const TEXT = [
+import { BlockInputData } from '../../../ts/type/type';
+const TEXT: BlockInputData[] = [
     {
         blockName: 'Simple text',
         desc: '',

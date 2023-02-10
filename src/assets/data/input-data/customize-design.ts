@@ -1,4 +1,6 @@
-const FINISH = [
+import { BlockInputData } from '../../../ts/type/type';
+
+const FINISH: BlockInputData[] = [
     {
         blockName: 'QR code frame',
         desc: '',
