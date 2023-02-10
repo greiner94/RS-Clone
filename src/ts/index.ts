@@ -1,9 +1,16 @@
 import '../assets/scss/style.scss';
 import '../pages/index.html';
-import { drawMainPage } from './draw-page/draw-main-page';
+import getHtmlOfFooter from './getHtmlOfFooter';
+import getHtmlOfHeader from './getHtmlOfHeader';
+import renderNewPage from './router/renderNewPage';
+// import { drawMainPage } from './draw-page/draw-main-page';
 import qrCode from './qr-code';
-import { breadcrumbsHighlight } from './state-element';
-
-drawMainPage();
-breadcrumbsHighlight();
+// import { breadcrumbsHighlight } from './state-element';
+import routeChange from './router/routChange';
+// window.location.hash = '';
+document.querySelector('header')?.insertAdjacentHTML('afterbegin', getHtmlOfHeader());
+document.querySelector('footer')?.insertAdjacentHTML('beforeend', getHtmlOfFooter());
+const hash = window.location.hash.slice(1);
+renderNewPage(hash);
+routeChange();
 qrCode();
