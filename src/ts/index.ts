@@ -4,7 +4,6 @@ import getHtmlOfFooter from './getHtmlOfFooter';
 import getHtmlOfHeader from './getHtmlOfHeader';
 import renderNewPage from './router/renderNewPage';
 // import { drawMainPage } from './draw-page/draw-main-page';
-import qrCode from './qr-code';
 // import { breadcrumbsHighlight } from './state-element';
 import routeChange from './router/routChange';
 // window.location.hash = '';
@@ -13,4 +12,3 @@ document.querySelector('footer')?.insertAdjacentHTML('beforeend', getHtmlOfFoote
 const hash = window.location.hash.slice(1);
 renderNewPage(hash);
 routeChange();
-qrCode();

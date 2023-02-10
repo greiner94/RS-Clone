@@ -1,14 +1,13 @@
-export default function qrCode() {
-    fetch('https://qr-api-vks7.onrender.com/api/qr/yana', {
+import getQrParams from './getQrParams';
+import getUserID from './getUserID';
+
+export default function getQrCode() {
+    fetch(`https://qr-api-vks7.onrender.com/api/qr/${getUserID()}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            textString: 'apex.ua',
-            bgColor: '#0cbb52',
-            descr: 'descr',
-        }),
+        body: JSON.stringify(getQrParams),
     })
         .then((res) => res.json())
         .then((res) => console.log(res));
