@@ -1,12 +1,11 @@
 import Breadcrumbs from '../../assets/data/breadcrumbs';
 import { Templates } from '../../assets/data/templates';
-import websiteUrlImg from '../../assets/images/smartphone/website-template-picture.jpg';
 
 interface ITemlate {
     nameOfTemplate: string;
     title: string;
     inputs: { name: string; inputTitle: string; placeholder: string }[];
-    image?: string;
+    mainContent?: string;
 }
 
 export function drawWebsiteTemplatesPage(url: string) {
@@ -60,7 +59,7 @@ export function drawWebsiteTemplatesPage(url: string) {
 
         smartphoneBlock.className = 'smartphone';
         drawBreadcrumbs(breadcrumbsBlock);
-        drawSmartphoneBlock(smartphoneBlock);
+        drawSmartphoneBlock(smartphoneBlock, nameOfTemlate.mainContent);
         contentWrap.append(mainContent);
         contentWrap.append(smartphoneBlock);
         container.append(breadcrumbsBlock);
@@ -113,7 +112,7 @@ function drawInputs(contentInputsSection: HTMLElement, nameOfTemlate: ITemlate) 
     }
 }
 
-export function drawSmartphoneBlock(parentElement: HTMLElement): void {
+export function drawSmartphoneBlock(parentElement: HTMLElement, mainContent?: string): void {
     const phone = <HTMLElement>document.createElement('div');
     phone.className = 'template__smartphone';
     phone.innerHTML = `
@@ -134,20 +133,7 @@ export function drawSmartphoneBlock(parentElement: HTMLElement): void {
                             </div>
                         </div>
                         <div class="preview-box-inside__content-wrapper">
-                            <div class="preview-box-inside__content-container">
-                                <div class="preview-box-inside__content-img">
-                                    <img src="${websiteUrlImg}" alt="website-template">
-                                </div>
-                                <div class="preview-box-inside__content-main">
-                                    <div class="preview-box-inside__content-main-title">
-                                        Learn more about plants
-                                    </div>
-                                    <div class="preview-box-inside__content-main-subtitle">
-                                        Read how to care for plants in our guide
-                                    </div>
-                                    <button class="preview-box-inside__content-main-button">View more</button>
-                                </div>
-                            </div>
+                            ${mainContent ? mainContent : ''}
                         </div>
                         <div class="preview-box-inside__footer">
                             <svg width="248" height="56" viewBox="0 0 248 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h248v21a35.3 35.3 0 0 1-10.09 24.75A34.15 34.15 0 0 1 213.57 56H34.43A34.15 34.15 0 0 1 10.1 45.75 35.3 35.3 0 0 1 0 21V0Z" fill="#F7F7F7"></path><path d="M166 46H82a2 2 0 1 0 0 4h84a2 2 0 1 0 0-4Z" fill="#000"></path><path d="M248 0H0v1h248V0Z" fill="#D9DCE1"></path><path d="M128 25h-8a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2Zm-8-10.2a1.2 1.2 0 0 0-1.2 1.2v7a1.2 1.2 0 0 0 1.2 1.2h8a1.2 1.2 0 0 0 1.2-1.2v-7a1.2 1.2 0 0 0-1.2-1.2h-8Z" fill="#3E75D2"></path><path d="M126 13.24h-4v2h4v-2Z" fill="#F7F7F7"></path><path d="m126.35 12.15-2-2a.5.5 0 0 0-.54-.11.5.5 0 0 0-.17.1l-2 2a.5.5 0 0 0-.15.36.51.51 0 0 0 .31.47.5.5 0 0 0 .55-.12l1.15-1.14v7.8a.5.5 0 0 0 .85.34.5.5 0 0 0 .15-.35v-7.8l1.14 1.15a.5.5 0 0 0 .85-.35.5.5 0 0 0-.14-.35Z" fill="#3E75D2"></path><path d="m74.86 17.14-5-5a.5.5 0 1 0-.7.71l4.64 4.65-4.65 4.64a.5.5 0 1 0 .71.7l5-5a.5.5 0 0 0 0-.7" fill="#BEBEBE"></path><path d="m17.2 17.5 4.65-4.65a.5.5 0 0 0-.7-.7l-5 5a.5.5 0 0 0 0 .7l5 5a.5.5 0 0 0 .7-.7l-4.64-4.65ZM227 22h-7a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2Zm-7-10.2a1.2 1.2 0 0 0-1.2 1.2v7a1.2 1.2 0 0 0 1.2 1.2h7a1.2 1.2 0 0 0 1.2-1.2v-7a1.2 1.2 0 0 0-1.2-1.2h-7Z" fill="#3E75D2"></path><path fill="#F6F6F6" d="M221 14h11v11h-11z"></path><path d="M230 25h-7a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2Zm-7-10.2a1.2 1.2 0 0 0-1.2 1.2v7a1.2 1.2 0 0 0 1.2 1.2h7a1.2 1.2 0 0 0 1.2-1.2v-7a1.2 1.2 0 0 0-1.2-1.2h-7ZM178.1 24a.42.42 0 0 1-.25-.08L173.76 21l-4.1 2.92a.42.42 0 0 1-.66-.34v-9.92a1.67 1.67 0 0 1 1.66-1.66h6.2a1.67 1.67 0 0 1 1.66 1.66v9.92a.42.42 0 0 1-.42.42Zm-7.44-11.15a.81.81 0 0 0-.81.81v9.1l3.67-2.62a.42.42 0 0 1 .49 0l3.67 2.62v-9.1a.8.8 0 0 0-.5-.75.81.81 0 0 0-.32-.06h-6.2Z" fill="#3E75D2"></path></svg>

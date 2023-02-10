@@ -14,7 +14,7 @@ export default function renderNewPage(hash: string) {
         container.innerHTML = '';
         console.log(hash.slice(10));
         container.append(drawWebsiteTemplatesPage(hash.slice(10)));
-        breadcrumbsHighlight();
+        // breadcrumbsHighlight();
         document.body.addEventListener('click', (e) => {
             if ((e.target as HTMLElement).classList.contains('btn-next')) {
                 // Пока сделала вызов функции из страницы с полями ввода инфы, эта функция должна находить значения инпутов
