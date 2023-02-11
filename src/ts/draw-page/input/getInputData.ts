@@ -21,7 +21,7 @@ const InputData: InputDataUrl = {
     Calendar: CALENDAR,
     Geolocation: GEOLOCATION,
     PhoneNumber: PHONE,
-    // customize: FINISH,
+    customize: FINISH,
 };
 
 export function getInputData(url: string): NewBlockInputData[] {

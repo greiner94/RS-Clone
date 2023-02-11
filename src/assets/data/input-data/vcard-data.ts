@@ -1,4 +1,3 @@
-import { BlockInputData } from '../../../ts/type/type';
 import { NewBlockInputData } from '../../../ts/type/type';
 
 const VCARD: NewBlockInputData[] = [
