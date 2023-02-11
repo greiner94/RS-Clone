@@ -7,3 +7,6 @@ export function breadcrumbsHighlight(): void {
     addLSParams('stage', stage);
     arrBreadcrumbsItems[stage - 1].classList.add('active');
 }
+export function hideBlockInput(): void {
+    //const
+}

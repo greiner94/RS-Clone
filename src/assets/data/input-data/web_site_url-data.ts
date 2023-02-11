@@ -1,14 +1,39 @@
-import { BlockInputData } from '../../../ts/type/type';
-const WEBSITE: BlockInputData[] = [
+import { NewBlockInputData } from '../../../ts/type/type';
+const WEBSITE: NewBlockInputData[] = [
     {
-        blockName: 'Website address',
-        desc: 'Enter the URL to which the QR code will link',
-        content: [
+        data: [
             {
-                type: 'url',
-                inputName: 'Website Url',
-                placeholder: 'e.g. https://yourwebsite.com',
-                bigsize: false,
+                blockName: '',
+                desc: '',
+                content: [
+                    {
+                        type: 'text',
+                        inputName: 'Name your QR code',
+                        placeholder: 'e.g. Your first QR code',
+                        bigsize: false,
+                        require: true,
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        bigBlockName: 'Website address',
+        bigBlockDesc: 'Enter the URL to which the QR code will link',
+        hide: true,
+        data: [
+            {
+                blockName: '',
+                desc: '',
+                content: [
+                    {
+                        type: 'url',
+                        inputName: 'Website Url',
+                        placeholder: 'e.g. https://yourwebsite.com',
+                        bigsize: false,
+                        require: true,
+                    },
+                ],
             },
         ],
     },

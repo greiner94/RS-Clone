@@ -1,53 +1,90 @@
-import { BlockInputData } from '../../type/type';
+import { NewBlockInputData } from '../../type/type';
 
-function inputConstructor(inputData: BlockInputData[]): DocumentFragment {
+function inputConstructor(inputData: NewBlockInputData[]): DocumentFragment {
     const fragmentInput = <DocumentFragment>document.createDocumentFragment();
-    const inputBlockEl = <HTMLDivElement>document.createElement('div');
+    console.log('inputData', inputData);
+    inputData.forEach((data) => {
+        const inputBlockEl = <HTMLDivElement>document.createElement('div');
+        const inputBlocksWrapper = <HTMLElement>document.createElement('div');
+        inputBlockEl.className = 'input-block';
+        inputBlocksWrapper.className = 'input-bigblock-wrapper';
+        if (data.bigBlockName) {
+            const headerWrapper = <HTMLElement>document.createElement('div');
+            const h3 = <HTMLElement>document.createElement('h3');
+            const bigDesc = <HTMLElement>document.createElement('p');
 
-    inputData.forEach((inputBlock) => {
-        const h3 = <HTMLElement>document.createElement('h3');
-        const desc = <HTMLElement>document.createElement('p');
-        const allInputWrapper = <HTMLElement>document.createElement('div');
-        h3.textContent = inputBlock.blockName;
-        desc.textContent = inputBlock.desc;
-        h3.className = 'input-block__h3';
-        allInputWrapper.className = 'all-input-wrapper';
-        const inputArrLength = inputBlock.content.length;
-        const isEvenLength = inputArrLength % 2 === 0;
+            h3.textContent = data.bigBlockName || '';
+            bigDesc.textContent = data.bigBlockDesc || '';
 
-        inputBlock.content.forEach(({ type, inputName, placeholder, bigsize, list = [] }, ind) => {
-            const inputWrapper = <HTMLDivElement>document.createElement('div');
-            const name = inputName.replace(/ /g, '').toLowerCase();
-            const label = <HTMLLabelElement>document.createElement('label');
-            inputWrapper.className = 'input-wrapper';
-            label.className = 'input-name';
-            label.textContent = inputName;
-            label.setAttribute('for', name);
-            inputWrapper.append(label);
-            if (bigsize === true) {
-                inputWrapper.append(getTextarea(placeholder, name));
-            } else if (type === 'select') {
-                inputWrapper.append(getSelect(list));
-            } else if (type === 'color') {
-                inputWrapper.append(getColor(name, placeholder));
-            } else {
-                if (type === 'checkbox') {
-                    label.className = 'checkbox-name';
-                    inputWrapper.classList.add('checkbox-wrapper');
-                }
-                inputWrapper.append(getInput(type, placeholder, name, isEvenLength, ind, inputArrLength));
+            headerWrapper.className = 'hide-block';
+            h3.className = 'hide-block__h3';
+
+            headerWrapper.append(h3, bigDesc);
+            inputBlockEl.append(headerWrapper);
+            if (data.hide === true) {
+                const spanArrow = <HTMLElement>document.createElement('span');
+                spanArrow.className = 'hide-block__arrow';
+                headerWrapper.append(spanArrow);
             }
-            allInputWrapper.append(inputWrapper);
-        });
-        inputBlockEl.append(h3, desc, allInputWrapper);
-        if (typeof inputBlock.svgArr !== 'undefined') {
-            desc.after(getIconBlock(inputBlock.svgArr));
         }
-        fragmentInput.append(inputBlockEl);
+        inputBlockEl.append(inputBlocksWrapper);
+        data.data.forEach((inputBlock) => {
+            const h4 = <HTMLElement>document.createElement('h4');
+            const desc = <HTMLElement>document.createElement('p');
+
+            h4.textContent = inputBlock.blockName;
+            desc.textContent = inputBlock.desc;
+            h4.className = 'input-block__h4';
+            inputBlocksWrapper.append(h4, desc);
+            const inputArrLength: number = inputBlock.content?.length || 0;
+            const isEvenLength = inputArrLength % 2 === 0;
+
+            if (inputArrLength > 0) {
+                const allInputWrapper = <HTMLElement>document.createElement('div');
+                allInputWrapper.className = 'all-input-wrapper';
+
+                inputBlock.content?.forEach(({ type, inputName, placeholder, bigsize, require, list = [] }, ind) => {
+                    const inputWrapper = <HTMLDivElement>document.createElement('div');
+                    const name = inputName.replace(/ /g, '').toLowerCase();
+                    const label = <HTMLLabelElement>document.createElement('label');
+
+                    inputWrapper.className = 'input-wrapper';
+                    label.className = 'input-name';
+                    label.textContent = inputName;
+                    label.setAttribute('for', name);
+                    inputWrapper.append(label);
+
+                    if (bigsize === true) {
+                        inputWrapper.append(getTextarea(placeholder, name));
+                    } else if (type === 'select') {
+                        inputWrapper.append(getSelect(list));
+                    } else if (type === 'color') {
+                        inputWrapper.append(getColor(name, placeholder));
+                    } else {
+                        if (type === 'checkbox') {
+                            label.className = 'checkbox-name';
+                            inputWrapper.classList.add('checkbox-wrapper');
+                        }
+                        inputWrapper.append(getInput(type, placeholder, name, isEvenLength, ind, inputArrLength));
+                    }
+                    if (require === true) {
+                        label.classList.add('label-require');
+                    }
+
+                    allInputWrapper.append(inputWrapper);
+                    inputBlocksWrapper.append(allInputWrapper);
+                });
+                // inputBlockEl.append(allInputWrapper);
+            }
+            if (typeof inputBlock.svgArr !== 'undefined') {
+                desc.after(getIconBlock(inputBlock.svgArr));
+            }
+            fragmentInput.append(inputBlockEl);
+        });
     });
-    inputBlockEl.className = 'input-block';
     return fragmentInput;
 }
+
 function getTextarea(placeholder: string, name: string): HTMLTextAreaElement {
     const textarea = <HTMLTextAreaElement>document.createElement('textarea');
     textarea.className = 'textarea';
@@ -57,6 +94,7 @@ function getTextarea(placeholder: string, name: string): HTMLTextAreaElement {
     textarea.maxLength = 200;
     return textarea;
 }
+
 function getInput(
     type: string,
     placeholder: string,
