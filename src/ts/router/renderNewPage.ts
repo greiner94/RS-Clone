@@ -2,7 +2,6 @@ import { drawMainPage } from '../draw-page/draw-main-page';
 import { drawWebsiteTemplatesPage } from '../draw-page/drawWebsiteTemplatesPage';
 import infoFromInputs from '../input-hendlers/infoFromInputs';
 import { breadcrumbsHighlight } from '../state-element';
-import { hideBlockInput } from '../state-element';
 
 export default function renderNewPage(hash: string) {
     const container = document.querySelector('main') as HTMLElement;
@@ -24,10 +23,6 @@ export default function renderNewPage(hash: string) {
                 // infoFromInputs();
                 infoFromInputs();
             }
-            if (target.classList.contains('hide-block__arrow')) {
-                hideBlockInput();
-            }
-            // }
         });
     }
     if (hash.includes('customize/')) {

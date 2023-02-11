@@ -1,5 +1,3 @@
-import { getLSParams } from './local-storage/get-params';
-import { addLSParams } from './local-storage/add-params';
 import { StagePage } from './type/type';
 
 const Stage: StagePage = {
@@ -18,14 +16,16 @@ const Stage: StagePage = {
 
 export function breadcrumbsHighlight(page: string): void {
     const arrBreadcrumbsItems: NodeListOf<HTMLElement> = document.querySelectorAll('.breadcrumbs__item');
-    //const stage = <number>getLSParams('stage') || 1;
     Array.from(arrBreadcrumbsItems).forEach((el) => {
         el.classList.remove('active');
     });
     const stage = Stage[page];
-    //addLSParams('stage', stage);
     arrBreadcrumbsItems[stage - 1].classList.add('active');
 }
-export function hideBlockInput(): void {
-    //const
+
+export function hideBlockInput(block: HTMLElement): void {
+    const blockToHide = block.querySelector('.input-bigblock-wrapper');
+    const blockHeader = block.querySelector('.hide-block');
+    blockToHide?.classList.toggle('none');
+    blockHeader?.classList.toggle('hide');
 }

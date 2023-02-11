@@ -26,3 +26,7 @@ export interface StagePage {
 export interface InputDataUrl {
     [key: string]: NewBlockInputData[];
 }
+
+export enum LSParam {
+    templatePage = 'page',
+}

@@ -1,3 +1,4 @@
+import { hideBlockInput } from '../../state-element';
 import { NewBlockInputData } from '../../type/type';
 
 function inputConstructor(inputData: NewBlockInputData[]): DocumentFragment {
@@ -25,6 +26,10 @@ function inputConstructor(inputData: NewBlockInputData[]): DocumentFragment {
                 const spanArrow = <HTMLElement>document.createElement('span');
                 spanArrow.className = 'hide-block__arrow';
                 headerWrapper.append(spanArrow);
+                ///////////////////////////////
+                spanArrow.addEventListener('click', () => {
+                    hideBlockInput(inputBlockEl);
+                });
             }
         }
         inputBlockEl.append(inputBlocksWrapper);
