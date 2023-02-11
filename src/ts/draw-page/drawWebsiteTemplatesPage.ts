@@ -3,6 +3,7 @@ import { Templates } from '../../assets/data/templates';
 import inputConstructor from './input/inputConstructor';
 import { getInputData } from './input/getInputData';
 import { Template } from 'webpack';
+import { drawBreadcrumbs } from './draw-main-page';
 interface ITemlate {
     nameOfTemplate: string;
     title: string;
@@ -58,7 +59,7 @@ export function drawWebsiteTemplatesPage(url: string) {
         mainContent.append(contentWrapper);
 
         smartphoneBlock.className = 'smartphone';
-        drawBreadcrumbs(breadcrumbsBlock);
+        breadcrumbsBlock.append(drawBreadcrumbs());
         drawSmartphoneBlock(smartphoneBlock, nameOfTemlate.mainContent);
         contentWrap.append(mainContent);
         contentWrap.append(smartphoneBlock);
@@ -69,27 +70,27 @@ export function drawWebsiteTemplatesPage(url: string) {
     return fragmentStartPage;
 }
 
-function drawBreadcrumbs(parentElement: HTMLElement): void {
-    const fragmentBreadcrumbs = <DocumentFragment>document.createDocumentFragment();
-    const ol = document.createElement('ol');
-    const length = Breadcrumbs.length;
-    for (let i = 0; i < length; i += 1) {
-        const li = document.createElement('li');
-        li.className = 'breadcrumbs__item';
-        if (i === 0) {
-            li.classList.add('non-active');
-        }
-        if (i === 1) {
-            li.classList.add('active');
-        }
-        li.dataset.stage = `${i + 1}`;
-        li.textContent = Breadcrumbs[i];
-        ol.append(li);
-    }
-    ol.className = 'breadcrumbs__list';
-    fragmentBreadcrumbs.append(ol);
-    parentElement.append(fragmentBreadcrumbs);
-}
+// function drawBreadcrumbs(parentElement: HTMLElement): void {
+//     const fragmentBreadcrumbs = <DocumentFragment>document.createDocumentFragment();
+//     const ol = document.createElement('ol');
+//     const length = Breadcrumbs.length;
+//     for (let i = 0; i < length; i += 1) {
+//         const li = document.createElement('li');
+//         li.className = 'breadcrumbs__item';
+//         if (i === 0) {
+//             li.classList.add('non-active');
+//         }
+//         if (i === 1) {
+//             li.classList.add('active');
+//         }
+//         li.dataset.stage = `${i + 1}`;
+//         li.textContent = Breadcrumbs[i];
+//         ol.append(li);
+//     }
+//     ol.className = 'breadcrumbs__list';
+//     fragmentBreadcrumbs.append(ol);
+//     parentElement.append(fragmentBreadcrumbs);
+// }
 
 // function drawInputs(contentInputsSection: HTMLElement, nameOfTemlate: ITemlate) {
 //     const length = Templates.length;

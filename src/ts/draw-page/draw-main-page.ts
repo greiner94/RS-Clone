@@ -22,7 +22,7 @@ export function drawMainPage() {
     smartphoneBlock.className = 'smartphone';
     // footerBlock.className = 'footer';
     // drawHeaderBlock(headerBlock);
-    drawBreadcrumbs(breadcrumbsBlock);
+    breadcrumbsBlock.append(drawBreadcrumbs());
     drawMainContent(mainContent);
     drawSmartphoneBlock(smartphoneBlock);
     // drawFooterBlock(footerBlock);
@@ -36,7 +36,7 @@ export function drawMainPage() {
     return fragmentStartPage;
 }
 
-function drawBreadcrumbs(parentElement: HTMLElement): void {
+export function drawBreadcrumbs(): DocumentFragment {
     const fragmentBreadcrumbs = <DocumentFragment>document.createDocumentFragment();
     const ol = document.createElement('ol');
     const length = Breadcrumbs.length;
@@ -49,7 +49,7 @@ function drawBreadcrumbs(parentElement: HTMLElement): void {
     }
     ol.className = 'breadcrumbs__list';
     fragmentBreadcrumbs.append(ol);
-    parentElement.append(fragmentBreadcrumbs);
+    return fragmentBreadcrumbs;
 }
 
 export function drawMainContent(parentElement: HTMLElement): void {

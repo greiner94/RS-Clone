@@ -20,9 +20,9 @@ export interface NewBlockInputData {
     data: BlockInputData[];
 }
 
-// export interface InputDataUrl {
-//     [key: string]: BlockInputData[];
-// }
+export interface StagePage {
+    [key: string]: number;
+}
 export interface InputDataUrl {
     [key: string]: NewBlockInputData[];
 }
