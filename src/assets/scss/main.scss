@@ -83,6 +83,9 @@ a{
     }
     &__wrap-text {
       align-self: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
     &__btn-block {
         position: relative;
