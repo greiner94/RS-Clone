@@ -2,7 +2,7 @@ import { BlockInputData } from '../../type/type';
 
 function inputConstructor(inputData: BlockInputData[]): DocumentFragment {
     const fragmentInput = <DocumentFragment>document.createDocumentFragment();
-    const inputBlockEl = <HTMLDivElement>document.createElement('div');
+    const inputBlockEl = <HTMLFormElement>document.createElement('form');
 
     inputData.forEach((inputBlock) => {
         const h3 = <HTMLElement>document.createElement('h3');

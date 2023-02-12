@@ -1,35 +1,33 @@
+import { qrTypes } from '../type/type';
+import calendar from './stringCreators/calendar';
+import email from './stringCreators/email';
+import geo from './stringCreators/geo';
+import phone from './stringCreators/phone';
+import sms from './stringCreators/sms';
+import text from './stringCreators/text';
+import url from './stringCreators/url';
+import vCard from './stringCreators/vCard';
+import wiFi from './stringCreators/wiFi';
+
 export default function getQrParams() {
-    type hashName =
-        | 'contacts'
-        | 'email'
-        | 'WebsiteURL'
-        | 'calendar'
-        | 'geolocation'
-        | 'text'
-        | 'sms'
-        | 'phoneNumber'
-        | 'wiFi';
-
     const listOfQrTypes = {
-        contacts: () => 'cba.com',
-        email: () => 'cba.com',
-        calendar: () => 'funcName',
-        geolocation: () => 'funcName',
-        WebsiteURL: () => 'cba.com',
-        text: () => 'funcName',
-        sms: () => 'funcName',
-        phoneNumber: () => 'funcName',
-        wiFi: () => 'funcName',
+        WebsiteURL: url,
+        'Wi-Fi': wiFi,
+        vCard: vCard,
+        SimpleText: text,
+        Email: email,
+        SMS: sms,
+        Calendar: calendar,
+        Geolocation: geo,
+        PhoneNumber: phone,
     };
+    const splitedHash = window.location.hash.split('/');
+    const checkedQrType = splitedHash[splitedHash.length - 1] as qrTypes;
 
-    const hash = window.location.hash.slice(1) as hashName;
-    const qrCodeDescrInput = document.querySelector('.main__content-name-input-block input') as HTMLInputElement;
-    const qrCodeDescrValue = qrCodeDescrInput.value;
-
-    if (listOfQrTypes.hasOwnProperty(hash)) {
+    if (listOfQrTypes.hasOwnProperty(checkedQrType)) {
         return {
-            descr: qrCodeDescrValue,
-            textString: listOfQrTypes[hash](),
+            descr: checkedQrType,
+            textString: listOfQrTypes[checkedQrType](),
         };
     } else {
         return {

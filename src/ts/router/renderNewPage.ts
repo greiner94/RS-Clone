@@ -1,7 +1,9 @@
 import { drawMainPage } from '../draw-page/draw-main-page';
 import { drawWebsiteTemplatesPage } from '../draw-page/drawWebsiteTemplatesPage';
 import infoFromInputs from '../input-hendlers/infoFromInputs';
+import getQrCode from '../qr-code';
 import { breadcrumbsHighlight } from '../state-element';
+import isValid from '../validation/isValide';
 
 export default function renderNewPage(hash: string) {
     const container = document.querySelector('main') as HTMLElement;
@@ -15,11 +17,11 @@ export default function renderNewPage(hash: string) {
         console.log(hash.slice(10));
         container.append(drawWebsiteTemplatesPage(hash.slice(10)));
         //breadcrumbsHighlight();
-        document.body.addEventListener('click', (e) => {
-            if ((e.target as HTMLElement).classList.contains('btn-next')) {
-                // Пока сделала вызов функции из страницы с полями ввода инфы, эта функция должна находить значения инпутов
-                // infoFromInputs();
-                infoFromInputs();
+        const form = document.querySelector('.input-block') as HTMLFormElement;
+
+        form.addEventListener('input', () => {
+            if (isValid()) {
+                getQrCode();
             }
         });
     }

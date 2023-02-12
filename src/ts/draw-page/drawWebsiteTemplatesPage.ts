@@ -48,7 +48,7 @@ export function drawWebsiteTemplatesPage(url: string) {
         <span class="btn-back-span">Back</span>
         </button>
     </a>
-    <a href="#customize/"><button class="btn btn-next">Next</button></a>
+    <a href="#customize/"><button disabled class="btn btn-next">Next</button></a>
     `;
         contentWrapper.append(contentTitle);
         contentWrapper.append(inputConstructor(getInputData(page)));

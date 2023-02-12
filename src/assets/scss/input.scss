@@ -184,6 +184,11 @@
     }
 }
 
+.invalid-input {
+    border-color: red;
+    color: red;
+}
+
 @media all and (max-width: 998px) {
     .main {
         margin: 0 auto;

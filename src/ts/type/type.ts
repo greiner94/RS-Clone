@@ -16,3 +16,14 @@ export interface BlockInputData {
 export interface InputDataUrl {
     [key: string]: BlockInputData[];
 }
+
+export type qrTypes =
+    | 'WebsiteURL'
+    | 'Wi-Fi'
+    | 'vCard'
+    | 'SimpleText'
+    | 'Email'
+    | 'SMS'
+    | 'Calendar'
+    | 'Geolocation'
+    | 'PhoneNumber';

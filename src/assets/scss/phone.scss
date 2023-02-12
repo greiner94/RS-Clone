@@ -57,6 +57,17 @@
     pointer-events: none;
     display: flex;
   }
+
+  &__preview-qr {
+    background: #fff;
+    width: 100%;
+    object-fit: contain;
+    padding: 10px;
+    height: 100%;
+    &_loader {
+      padding: 60px;
+    }
+  }
 }
 .preview-box-inside {
   // .preview-box-inside__header
