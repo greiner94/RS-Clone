@@ -11,14 +11,15 @@ export default function renderNewPage(hash: string) {
     if (hash === 'main') {
         container.innerHTML = '';
         container.append(drawMainPage());
-        breadcrumbsHighlight();
+        breadcrumbsHighlight('main');
     }
     if (hash.includes('templates/')) {
         container.innerHTML = '';
-        console.log(hash.slice(10));
-        container.append(drawWebsiteTemplatesPage(hash.slice(10)));
-        //breadcrumbsHighlight();
-        const form = document.querySelector('.input-block') as HTMLFormElement;
+        const page = hash.slice(10);
+        console.log(page);
+        container.append(drawWebsiteTemplatesPage(page));
+        breadcrumbsHighlight(page);
+        const form = document.querySelector('.main__content-wrapper') as HTMLFormElement;
 
         form.addEventListener('input', () => {
             if (isValid()) {
@@ -27,11 +28,9 @@ export default function renderNewPage(hash: string) {
         });
     }
     if (hash.includes('customize/')) {
-        //container.innerHTML = 'URL сменился на customize тут должна быть 3 страница';
-        // breadcrumbsHighlight();
         container.innerHTML = '';
         container.append(drawWebsiteTemplatesPage('customize'));
-
+        breadcrumbsHighlight('customize');
         getCustomizeQrCode();
     }
 }

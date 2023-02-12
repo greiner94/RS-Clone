@@ -8,7 +8,7 @@ import TEXT from '../../../assets/data/input-data/text-data';
 import VCARD from '../../../assets/data/input-data/vcard-data';
 import WEBSITE from '../../../assets/data/input-data/web_site_url-data';
 import WIFI from '../../../assets/data/input-data/wifi-data';
-import { BlockInputData } from '../../type/type';
+import { NewBlockInputData } from '../../type/type';
 import { InputDataUrl } from '../../type/type';
 
 const InputData: InputDataUrl = {
@@ -24,6 +24,6 @@ const InputData: InputDataUrl = {
     customize: FINISH,
 };
 
-export function getInputData(url: string): BlockInputData[] {
-    return InputData[url] as BlockInputData[];
+export function getInputData(url: string): NewBlockInputData[] {
+    return InputData[url] as NewBlockInputData[];
 }

@@ -1,8 +1,11 @@
-import Breadcrumbs from '../../assets/data/breadcrumbs';
 import { Templates } from '../../assets/data/templates';
 import inputConstructor from './input/inputConstructor';
 import { getInputData } from './input/getInputData';
 import { Template } from 'webpack';
+import { drawBreadcrumbs } from './draw-main-page';
+import { addLSParams } from '../local-storage/add-params';
+import { LSParam } from '../type/type';
+import { getLSParams } from '../local-storage/get-params';
 interface ITemlate {
     nameOfTemplate: string;
     title: string;
@@ -11,12 +14,25 @@ interface ITemlate {
 }
 
 export function drawWebsiteTemplatesPage(url: string) {
+    let previousPage;
+    let button;
     const partUrlArr = url.split('/');
     const page = partUrlArr[partUrlArr.length - 1];
+    if (page !== 'customize') {
+        addLSParams(LSParam.templatePage, page);
+        previousPage = `#main`;
+        button = '<a href="#customize/"><button disabled class="btn btn-next">Next</button></a>';
+    } else {
+        previousPage = `#templates/${getLSParams(LSParam.templatePage)}`;
+        button = `<div class="finish-btn">
+                    <a href="" download><button class="btn btn-download">Download</button></a>
+                    <button class="btn btn-print">Print</button>
+                </div>`;
+    }
     const templateIndex: number = Templates.findIndex(({ nameOfTemplate }) => page === nameOfTemplate);
     const fragmentStartPage = <DocumentFragment>document.createDocumentFragment();
     const nameOfTemlate = Templates[templateIndex];
-    console.log('templateIndex', templateIndex);
+    console.log('url', url);
 
     if (nameOfTemlate) {
         console.log(nameOfTemlate);
@@ -42,13 +58,13 @@ export function drawWebsiteTemplatesPage(url: string) {
         const title = nameOfTemlate.title;
         contentTitle.innerHTML = `<h2>${title}</h2>`;
         buttonAction.innerHTML = `
-    <a href="#main"><button class="btn btn-back">
+    <a href="${previousPage}"><button class="btn btn-back">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.95 18.43a2.03 2.03 0 0 0 0-2.77L12 11.5l3.95-4.16a2.03 2.03 0 0 0 0-2.77 1.8 1.8 0 0 0-2.63 0l-5.27 5.54a2.03 2.03 0 0 0 0 2.77l5.27 5.55a1.8 1.8 0 0 0 2.63 0Z" fill="var(--arrow-left-bold-icon-color, currentColor)"></path>
         </svg>
         <span class="btn-back-span">Back</span>
         </button>
     </a>
-    <a href="#customize/"><button disabled class="btn btn-next">Next</button></a>
+    ${button}
     `;
         contentWrapper.append(contentTitle);
         contentWrapper.append(inputConstructor(getInputData(page)));
@@ -58,7 +74,7 @@ export function drawWebsiteTemplatesPage(url: string) {
         mainContent.append(contentWrapper);
 
         smartphoneBlock.className = 'smartphone';
-        drawBreadcrumbs(breadcrumbsBlock);
+        breadcrumbsBlock.append(drawBreadcrumbs());
         drawSmartphoneBlock(smartphoneBlock, nameOfTemlate.mainContent);
         contentWrap.append(mainContent);
         contentWrap.append(smartphoneBlock);
@@ -69,27 +85,27 @@ export function drawWebsiteTemplatesPage(url: string) {
     return fragmentStartPage;
 }
 
-function drawBreadcrumbs(parentElement: HTMLElement): void {
-    const fragmentBreadcrumbs = <DocumentFragment>document.createDocumentFragment();
-    const ol = document.createElement('ol');
-    const length = Breadcrumbs.length;
-    for (let i = 0; i < length; i += 1) {
-        const li = document.createElement('li');
-        li.className = 'breadcrumbs__item';
-        if (i === 0) {
-            li.classList.add('non-active');
-        }
-        if (i === 1) {
-            li.classList.add('active');
-        }
-        li.dataset.stage = `${i + 1}`;
-        li.textContent = Breadcrumbs[i];
-        ol.append(li);
-    }
-    ol.className = 'breadcrumbs__list';
-    fragmentBreadcrumbs.append(ol);
-    parentElement.append(fragmentBreadcrumbs);
-}
+// function drawBreadcrumbs(parentElement: HTMLElement): void {
+//     const fragmentBreadcrumbs = <DocumentFragment>document.createDocumentFragment();
+//     const ol = document.createElement('ol');
+//     const length = Breadcrumbs.length;
+//     for (let i = 0; i < length; i += 1) {
+//         const li = document.createElement('li');
+//         li.className = 'breadcrumbs__item';
+//         if (i === 0) {
+//             li.classList.add('non-active');
+//         }
+//         if (i === 1) {
+//             li.classList.add('active');
+//         }
+//         li.dataset.stage = `${i + 1}`;
+//         li.textContent = Breadcrumbs[i];
+//         ol.append(li);
+//     }
+//     ol.className = 'breadcrumbs__list';
+//     fragmentBreadcrumbs.append(ol);
+//     parentElement.append(fragmentBreadcrumbs);
+// }
 
 // function drawInputs(contentInputsSection: HTMLElement, nameOfTemlate: ITemlate) {
 //     const length = Templates.length;

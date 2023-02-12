@@ -1,20 +1,46 @@
-import { BlockInputData } from '../../../ts/type/type';
-const GEOLOCATION: BlockInputData[] = [
+import { NewBlockInputData } from '../../../ts/type/type';
+const GEOLOCATION: NewBlockInputData[] = [
     {
-        blockName: 'Geolocation',
-        desc: '',
-        content: [
+        data: [
             {
-                type: 'text',
-                inputName: 'Latitude',
-                placeholder: 'e.g. 41.40338',
-                bigsize: false,
+                blockName: '',
+                desc: '',
+                content: [
+                    {
+                        type: 'text',
+                        inputName: 'Name your QR code',
+                        placeholder: 'e.g. Your first QR code',
+                        bigsize: false,
+                        require: true,
+                    },
+                ],
             },
+        ],
+    },
+    {
+        bigBlockName: 'Geolocation',
+        bigBlockDesc: 'Fill in the coordinates you want to share or save',
+        hide: true,
+        data: [
             {
-                type: 'text',
-                inputName: 'Longitude',
-                placeholder: 'e.g. 2.17403',
-                bigsize: false,
+                blockName: '',
+                desc: '',
+                content: [
+                    {
+                        type: 'text',
+                        inputName: 'Latitude',
+                        placeholder: 'e.g. 41.40338',
+                        bigsize: false,
+                        require: true,
+                    },
+                    {
+                        type: 'text',
+                        inputName: 'Longitude',
+                        placeholder: 'e.g. 2.17403',
+                        bigsize: false,
+                        require: true,
+                    },
+                ],
             },
         ],
     },
