@@ -8,15 +8,17 @@ export default function renderNewPage(hash: string) {
     if (hash === 'main') {
         container.innerHTML = '';
         container.append(drawMainPage());
-        breadcrumbsHighlight();
+        breadcrumbsHighlight('main');
     }
     if (hash.includes('templates/')) {
         container.innerHTML = '';
-        console.log(hash.slice(10));
-        container.append(drawWebsiteTemplatesPage(hash.slice(10)));
-        //breadcrumbsHighlight();
+        const page = hash.slice(10);
+        console.log(page);
+        container.append(drawWebsiteTemplatesPage(page));
+        breadcrumbsHighlight(page);
         document.body.addEventListener('click', (e) => {
-            if ((e.target as HTMLElement).classList.contains('btn-next')) {
+            const target = <HTMLElement>e.target;
+            if (target.classList.contains('btn-next')) {
                 // Пока сделала вызов функции из страницы с полями ввода инфы, эта функция должна находить значения инпутов
                 // infoFromInputs();
                 infoFromInputs();
@@ -24,9 +26,8 @@ export default function renderNewPage(hash: string) {
         });
     }
     if (hash.includes('customize/')) {
-        //container.innerHTML = 'URL сменился на customize тут должна быть 3 страница';
-        // breadcrumbsHighlight();
         container.innerHTML = '';
         container.append(drawWebsiteTemplatesPage('customize'));
+        breadcrumbsHighlight('customize');
     }
 }
