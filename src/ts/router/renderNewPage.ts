@@ -1,7 +1,8 @@
 import { drawMainPage } from '../draw-page/draw-main-page';
 import { drawWebsiteTemplatesPage } from '../draw-page/drawWebsiteTemplatesPage';
 import infoFromInputs from '../input-hendlers/infoFromInputs';
-import getQrCode from '../qr-code';
+import getCustomizeQrCode from '../qr-code/getCustomizeQrCode';
+import getQrCode from '../qr-code/getQrCode';
 import { breadcrumbsHighlight } from '../state-element';
 import isValid from '../validation/isValide';
 
@@ -30,5 +31,7 @@ export default function renderNewPage(hash: string) {
         // breadcrumbsHighlight();
         container.innerHTML = '';
         container.append(drawWebsiteTemplatesPage('customize'));
+
+        getCustomizeQrCode();
     }
 }
