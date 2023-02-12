@@ -19,6 +19,8 @@ export default function renderNewPage(hash: string) {
         console.log(page);
         container.append(drawWebsiteTemplatesPage(page));
         breadcrumbsHighlight(page);
+
+        localStorage.removeItem('fetching');
         const form = document.querySelector('.main__content-wrapper') as HTMLFormElement;
 
         form.addEventListener('input', () => {

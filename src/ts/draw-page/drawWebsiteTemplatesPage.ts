@@ -42,7 +42,7 @@ export function drawWebsiteTemplatesPage(url: string) {
         const contentWrap = <HTMLElement>document.createElement('div');
         const mainContent = <HTMLElement>document.createElement('div');
         const smartphoneBlock = <HTMLElement>document.createElement('div');
-        const contentWrapper = <HTMLFormElement>document.createElement('form');
+        const contentWrapper = <HTMLElement>document.createElement('div');
         const contentTitle = <HTMLElement>document.createElement('div');
         const contentInputsSection = <HTMLElement>document.createElement('div');
         const buttonAction = <HTMLElement>document.createElement('div');

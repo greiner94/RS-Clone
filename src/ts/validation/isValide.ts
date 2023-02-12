@@ -8,6 +8,7 @@ import sms from './validationForDiffTypes/sms';
 import calendar from './validationForDiffTypes/calendar';
 import geo from './validationForDiffTypes/geo';
 import phone from './validationForDiffTypes/phone';
+import isQrHasName from './validationForDiffTypes/isQrHasName';
 
 const listOfQrTypes = {
     WebsiteURL: url,
@@ -28,7 +29,7 @@ export default function isValid() {
 
     nextBtn.setAttribute('disabled', 'true');
 
-    const isValid = listOfQrTypes[checkedQrType]();
+    const isValid = listOfQrTypes[checkedQrType]() && isQrHasName();
     isValid ? nextBtn.removeAttribute('disabled') : nextBtn.setAttribute('disabled', 'true');
 
     return isValid;

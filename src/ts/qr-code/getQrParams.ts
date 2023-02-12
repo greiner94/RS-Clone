@@ -23,10 +23,11 @@ export default function getQrParams() {
     };
     const splitedHash = window.location.hash.split('/');
     const checkedQrType = splitedHash[splitedHash.length - 1] as qrTypes;
+    const qrCodeName = document.querySelector('#nameyourqrcode') as HTMLInputElement;
 
     if (listOfQrTypes.hasOwnProperty(checkedQrType)) {
         return {
-            descr: checkedQrType,
+            descr: qrCodeName.value,
             textString: listOfQrTypes[checkedQrType](),
         };
     } else {
