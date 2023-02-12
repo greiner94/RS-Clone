@@ -32,7 +32,7 @@ const CALENDAR: NewBlockInputData[] = [
                         inputName: 'Event name',
                         placeholder: 'e.g. Your event',
                         bigsize: false,
-                        require: true,
+                        require: false,
                     },
                     {
                         type: 'text',
@@ -46,7 +46,7 @@ const CALENDAR: NewBlockInputData[] = [
                         inputName: 'Start date',
                         placeholder: '',
                         bigsize: false,
-                        require: true,
+                        require: false,
                     },
                     {
                         type: 'datetime-local',
