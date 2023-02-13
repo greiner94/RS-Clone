@@ -11,6 +11,7 @@ export interface BlockInputData {
     blockName: string;
     desc: string;
     svgArr?: string[];
+    type?: string;
     content?: InputData[];
 }
 export interface NewBlockInputData {
@@ -18,6 +19,7 @@ export interface NewBlockInputData {
     bigBlockDesc?: string;
     hide?: boolean;
     data: BlockInputData[];
+    type?: string;
 }
 
 export interface StagePage {

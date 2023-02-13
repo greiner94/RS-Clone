@@ -187,7 +187,6 @@ const FINISH: NewBlockInputData[] = [
         bigBlockName: 'Add logo',
         bigBlockDesc: 'Choose the logo or upload your own logo',
         hide: true,
-        type: 'selectUploadBlock',
         data: [
             {
                 blockName: 'Select logo',
