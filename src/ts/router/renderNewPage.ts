@@ -1,7 +1,10 @@
 import { drawMainPage } from '../draw-page/draw-main-page';
 import { drawWebsiteTemplatesPage } from '../draw-page/drawWebsiteTemplatesPage';
 import infoFromInputs from '../input-hendlers/infoFromInputs';
+import getCustomizeQrCode from '../qr-code/getCustomizeQrCode';
+import getQrCode from '../qr-code/getQrCode';
 import { breadcrumbsHighlight } from '../state-element';
+import isValid from '../validation/isValide';
 
 export default function renderNewPage(hash: string) {
     const container = document.querySelector('main') as HTMLElement;
@@ -16,12 +19,13 @@ export default function renderNewPage(hash: string) {
         console.log(page);
         container.append(drawWebsiteTemplatesPage(page));
         breadcrumbsHighlight(page);
-        document.body.addEventListener('click', (e) => {
-            const target = <HTMLElement>e.target;
-            if (target.classList.contains('btn-next')) {
-                // Пока сделала вызов функции из страницы с полями ввода инфы, эта функция должна находить значения инпутов
-                // infoFromInputs();
-                infoFromInputs();
+
+        localStorage.removeItem('fetching');
+        const form = document.querySelector('.main__content-wrapper') as HTMLFormElement;
+
+        form.addEventListener('input', () => {
+            if (isValid()) {
+                getQrCode();
             }
         });
     }
@@ -29,5 +33,6 @@ export default function renderNewPage(hash: string) {
         container.innerHTML = '';
         container.append(drawWebsiteTemplatesPage('customize'));
         breadcrumbsHighlight('customize');
+        getCustomizeQrCode();
     }
 }

@@ -33,6 +33,7 @@
     flex-direction: column;
     position: relative;
     padding: 11px 14px;
+    background:#fff;
   }
 
   // .template__preview-box-inside
@@ -57,7 +58,26 @@
     pointer-events: none;
     display: flex;
   }
+
+  &__preview-qr {
+    background: #fff;
+    width: 100%;
+    object-fit: contain;
+    padding: 10px;
+    height: 100%;
+    &_loader {
+      padding: 60px;
+      animation: preloader 3s;
+      animation-iteration-count: infinite;
+    }
+  }
 }
+
+@keyframes preloader {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
 .preview-box-inside {
   // .preview-box-inside__header
 

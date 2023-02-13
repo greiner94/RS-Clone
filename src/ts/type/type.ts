@@ -30,3 +30,14 @@ export interface InputDataUrl {
 export enum LSParam {
     templatePage = 'page',
 }
+
+export type qrTypes =
+    | 'WebsiteURL'
+    | 'Wi-Fi'
+    | 'vCard'
+    | 'SimpleText'
+    | 'Email'
+    | 'SMS'
+    | 'Calendar'
+    | 'Geolocation'
+    | 'PhoneNumber';

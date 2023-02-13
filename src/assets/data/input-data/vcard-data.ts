@@ -12,7 +12,7 @@ const VCARD: NewBlockInputData[] = [
                         inputName: 'Name your QR code',
                         placeholder: 'e.g. Your first QR code',
                         bigsize: false,
-                        require: true,
+                        require: false,
                     },
                 ],
             },
@@ -32,7 +32,7 @@ const VCARD: NewBlockInputData[] = [
                         inputName: 'Name',
                         placeholder: 'e.g. Dmitriy',
                         bigsize: false,
-                        require: true,
+                        require: false,
                     },
                     {
                         type: 'text',
@@ -52,7 +52,7 @@ const VCARD: NewBlockInputData[] = [
                         inputName: 'Phone number',
                         placeholder: 'e.g. +1809999999',
                         bigsize: false,
-                        require: true,
+                        require: false,
                     },
                     {
                         type: 'tel',
@@ -66,7 +66,7 @@ const VCARD: NewBlockInputData[] = [
                         inputName: 'Email',
                         placeholder: 'e.g. your@gmail.com',
                         bigsize: false,
-                        require: true,
+                        require: false,
                     },
                     {
                         type: 'url',

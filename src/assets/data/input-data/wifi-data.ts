@@ -11,7 +11,7 @@ const WIFI: NewBlockInputData[] = [
                         inputName: 'Name your QR code',
                         placeholder: 'e.g. Your first QR code',
                         bigsize: false,
-                        require: true,
+                        require: false,
                     },
                 ],
             },
@@ -31,7 +31,7 @@ const WIFI: NewBlockInputData[] = [
                         inputName: 'Network name',
                         placeholder: 'e.g. Your Wi-Fi',
                         bigsize: false,
-                        require: true,
+                        require: false,
                     },
                     {
                         type: 'text',
