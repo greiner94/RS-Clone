@@ -6,12 +6,12 @@ import { drawBreadcrumbs } from './draw-main-page';
 import { addLSParams } from '../local-storage/add-params';
 import { LSParam } from '../type/type';
 import { getLSParams } from '../local-storage/get-params';
-interface ITemlate {
-    nameOfTemplate: string;
-    title: string;
-    inputs?: { name: string; inputTitle: string; placeholder: string }[];
-    mainContent?: string;
-}
+// interface ITemlate {
+//     nameOfTemplate: string;
+//     title: string;
+//     inputs?: { name: string; inputTitle: string; placeholder: string }[];
+//     mainContent?: string;
+// }
 
 export function drawWebsiteTemplatesPage(url: string) {
     let previousPage;
@@ -32,11 +32,8 @@ export function drawWebsiteTemplatesPage(url: string) {
     const templateIndex: number = Templates.findIndex(({ nameOfTemplate }) => page === nameOfTemplate);
     const fragmentStartPage = <DocumentFragment>document.createDocumentFragment();
     const nameOfTemlate = Templates[templateIndex];
-    console.log('url', url);
 
     if (nameOfTemlate) {
-        console.log(nameOfTemlate);
-
         const container = <HTMLDivElement>document.createElement('div');
         const breadcrumbsBlock = <HTMLElement>document.createElement('div');
         const contentWrap = <HTMLElement>document.createElement('div');

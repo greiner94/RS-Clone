@@ -16,7 +16,6 @@ export default function renderNewPage(hash: string) {
     if (hash.includes('templates/')) {
         container.innerHTML = '';
         const page = hash.slice(10);
-        console.log(page);
         container.append(drawWebsiteTemplatesPage(page));
         breadcrumbsHighlight(page);
 
