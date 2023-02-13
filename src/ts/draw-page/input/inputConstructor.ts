@@ -3,7 +3,6 @@ import { NewBlockInputData } from '../../type/type';
 
 function inputConstructor(inputData: NewBlockInputData[]): DocumentFragment {
     const fragmentInput = <DocumentFragment>document.createDocumentFragment();
-    console.log('inputData', inputData);
     inputData.forEach((data) => {
         const inputBlockEl = <HTMLDivElement>document.createElement('div');
         const inputBlocksWrapper = <HTMLElement>document.createElement('div');
@@ -32,12 +31,9 @@ function inputConstructor(inputData: NewBlockInputData[]): DocumentFragment {
                 });
             }
         }
-        console.log('data', data);
-        console.log('data.type', data.type);
         inputBlockEl.append(inputBlocksWrapper);
         // Draw select logo/upload logo block
         if (data.type === 'selectUploadBlock') {
-            console.log('draw selectUploadBlock');
             data.data.forEach((inputBlock) => {
                 const wrap = <HTMLElement>document.createElement('div');
                 wrap.className = 'select-upload-wrap';
@@ -57,10 +53,8 @@ function inputConstructor(inputData: NewBlockInputData[]): DocumentFragment {
                     allInputWrapper.append(getIconBlock(inputBlock.svgArr));
                     inputBlocksWrapper.classList.add('upload-block');
                     allInputWrapper.classList.add('choose-block');
-                    console.log('draw icon Block');
                 }
                 if (inputBlock.type === 'uploadBlock') {
-                    console.log('draw upload Block');
                     allInputWrapper.append(getUploadLogo());
                     allInputWrapper.classList.add('upload-block');
                 }
