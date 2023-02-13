@@ -1,4 +1,10 @@
 import imgURL from '../images/smartphone/website-template-picture.jpg';
+import imgCalendar from '../images/smartphone/calendar.png';
+import sms from '../images/smartphone/sms.png';
+import location from '../images/smartphone/location.jpg';
+import number from '../images/smartphone/number.jpg';
+import vCard from '../images/smartphone/vcard.jpg';
+import eMail from '../images/smartphone/email.png';
 
 export const Templates = [
     {
@@ -45,9 +51,7 @@ export const Templates = [
         title: '2.Add content to the VCard QR code',
         mainContent: `
         <div class="preview-box-inside__content-container">
-            <p class="preview-box-inside__content-text">
-                Physiological respiration involves the mechanisms that ensure that the composition of the functional residual capacity is kept constant, and equilibrates with the gases dissolved in the pulmonary capillary blood, and thus throughout the body. Thus, in precise usage, the words breathing and ventilation are hyponyms, not synonyms, of respiration; but this prescription is not consistently followed, even by most health care providers, because the term respiratory rate (RR) is a well-established term in health care, even though it would need to be consistently replaced with ventilation rate if the precise usage were to be followed.
-            </p>
+            <img src="${vCard}" alt="vCard">
         </div>
         `,
     },
@@ -67,9 +71,7 @@ export const Templates = [
         title: '2.Add content to the Email QR code',
         mainContent: `
         <div class="preview-box-inside__content-container">
-            <p class="preview-box-inside__content-text">
-                Physiological respiration involves the mechanisms that ensure that the composition of the functional residual capacity is kept constant, and equilibrates with the gases dissolved in the pulmonary capillary blood, and thus throughout the body. Thus, in precise usage, the words breathing and ventilation are hyponyms, not synonyms, of respiration; but this prescription is not consistently followed, even by most health care providers, because the term respiratory rate (RR) is a well-established term in health care, even though it would need to be consistently replaced with ventilation rate if the precise usage were to be followed.
-            </p>
+            <img src="${eMail}" alt="eMail">
         </div>
         `,
     },
@@ -78,9 +80,7 @@ export const Templates = [
         title: '2.Add content to the SMS QR code',
         mainContent: `
         <div class="preview-box-inside__content-container">
-            <p class="preview-box-inside__content-text">
-                Physiological respiration involves the mechanisms that ensure that the composition of the functional residual capacity is kept constant, and equilibrates with the gases dissolved in the pulmonary capillary blood, and thus throughout the body. Thus, in precise usage, the words breathing and ventilation are hyponyms, not synonyms, of respiration; but this prescription is not consistently followed, even by most health care providers, because the term respiratory rate (RR) is a well-established term in health care, even though it would need to be consistently replaced with ventilation rate if the precise usage were to be followed.
-            </p>
+            <img class="preview-box-inside__content-img-sms" src="${sms}" alt="sms">
         </div>
         `,
     },
@@ -89,9 +89,7 @@ export const Templates = [
         title: '2.Add content to the Calendar QR code',
         mainContent: `
         <div class="preview-box-inside__content-container">
-            <p class="preview-box-inside__content-text">
-                Physiological respiration involves the mechanisms that ensure that the composition of the functional residual capacity is kept constant, and equilibrates with the gases dissolved in the pulmonary capillary blood, and thus throughout the body. Thus, in precise usage, the words breathing and ventilation are hyponyms, not synonyms, of respiration; but this prescription is not consistently followed, even by most health care providers, because the term respiratory rate (RR) is a well-established term in health care, even though it would need to be consistently replaced with ventilation rate if the precise usage were to be followed.
-            </p>
+            <img class="preview-box-inside__content-img-calendar" src="${imgCalendar}" alt="calendar">
         </div>
         `,
     },
@@ -100,9 +98,7 @@ export const Templates = [
         title: '2.Add content to the Geolocation QR code',
         mainContent: `
         <div class="preview-box-inside__content-container">
-            <p class="preview-box-inside__content-text">
-                Physiological respiration involves the mechanisms that ensure that the composition of the functional residual capacity is kept constant, and equilibrates with the gases dissolved in the pulmonary capillary blood, and thus throughout the body. Thus, in precise usage, the words breathing and ventilation are hyponyms, not synonyms, of respiration; but this prescription is not consistently followed, even by most health care providers, because the term respiratory rate (RR) is a well-established term in health care, even though it would need to be consistently replaced with ventilation rate if the precise usage were to be followed.
-            </p>
+            <img class="preview-box-inside__content" src="${location}" alt="location">
         </div>
         `,
     },
@@ -111,9 +107,7 @@ export const Templates = [
         title: '2.Add content to the Phone Number QR code',
         mainContent: `
         <div class="preview-box-inside__content-container">
-            <p class="preview-box-inside__content-text">
-                Physiological respiration involves the mechanisms that ensure that the composition of the functional residual capacity is kept constant, and equilibrates with the gases dissolved in the pulmonary capillary blood, and thus throughout the body. Thus, in precise usage, the words breathing and ventilation are hyponyms, not synonyms, of respiration; but this prescription is not consistently followed, even by most health care providers, because the term respiratory rate (RR) is a well-established term in health care, even though it would need to be consistently replaced with ventilation rate if the precise usage were to be followed.
-            </p>
+            <img class="preview-box-inside__content" src="${number}" alt="number">
         </div>
         `,
     },
