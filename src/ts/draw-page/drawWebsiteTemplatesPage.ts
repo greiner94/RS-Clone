@@ -125,7 +125,12 @@ export function drawWebsiteTemplatesPage(url: string) {
 //     }
 // }
 
-export function drawSmartphoneBlock(parentElement: HTMLElement, mainContent?: string): void {
+export function drawSmartphoneBlock(parentElement: HTMLElement, mainContent: string, isFirstPage?: boolean): void {
+    if (isFirstPage) {
+        Templates.forEach((template) => {
+            mainContent += template.mainContent;
+        });
+    }
     const phone = <HTMLElement>document.createElement('div');
     phone.className = 'template__smartphone';
     phone.innerHTML = `

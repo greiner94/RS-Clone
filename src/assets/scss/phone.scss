@@ -1,6 +1,5 @@
 @import './for-phone/phonewifi.scss';
-
-@import './for-phone/phonewifi.scss';
+@import './for-phone/hover.scss';
 
 .template__smartphone {
     display: flex;
@@ -24,7 +23,6 @@
 }
 .template {
     // .template__scroll-container
-    // .template__scroll-container
 
     &__scroll-container {
         position: relative;
@@ -33,15 +31,7 @@
         padding: 6px 32.54px 102px 27px;
         border-radius: 40px;
     }
-    &__scroll-container {
-        position: relative;
-        overflow: hidden;
-        max-height: 100%;
-        padding: 6px 32.54px 102px 27px;
-        border-radius: 40px;
-    }
 
-    // .template__preview-box
     // .template__preview-box
 
     &__preview-box {
@@ -54,21 +44,9 @@
         flex-direction: column;
         position: relative;
         padding: 11px 14px;
-    }
-    &__preview-box {
-        height: 513px;
-        width: 252px;
-        // aspect-ratio: 276 / 559;
-        border-radius: 48px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        padding: 11px 14px;
-    background:#fff;
+        background: #fff;
     }
 
-    // .template__preview-box-inside
     // .template__preview-box-inside
 
     &__preview-box-inside {
@@ -80,17 +58,7 @@
         position: relative;
         align-items: center;
     }
-    &__preview-box-inside {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-        background: rgb(255, 255, 255);
-        position: relative;
-        align-items: center;
-    }
 
-    // .template__preview-box-smartphone
     // .template__preview-box-smartphone
 
     &__preview-box-smartphone {
@@ -102,38 +70,32 @@
         pointer-events: none;
         display: flex;
     }
-    &__preview-box-smartphone {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0px;
-        left: 0px;
-        pointer-events: none;
-        display: flex;
-    }
 
-  &__preview-qr {
-    background: #fff;
-    width: 100%;
-    object-fit: contain;
-    padding: 10px;
-    height: 100%;
-    &_loader {
-      padding: 60px;
-      animation: preloader 3s;
-      animation-iteration-count: infinite;
+    &__preview-qr {
+        background: #fff;
+        width: 100%;
+        object-fit: contain;
+        padding: 10px;
+        height: 100%;
+        &_loader {
+            padding: 60px;
+            animation: preloader 3s;
+            animation-iteration-count: infinite;
+        }
     }
-  }
 }
 
 @keyframes preloader {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(360deg);}
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .preview-box-inside {
     // .preview-box-inside__header
-    // .preview-box-inside__header
 
     &__header {
         padding: 8px 10px 5px;
@@ -141,14 +103,7 @@
         border-bottom: 1px solid rgb(217, 220, 225);
         width: 100%;
     }
-    &__header {
-        padding: 8px 10px 5px;
-        background: rgb(247, 247, 247);
-        border-bottom: 1px solid rgb(217, 220, 225);
-        width: 100%;
-    }
 
-    // .preview-box-inside__header-top
     // .preview-box-inside__header-top
 
     &__header-top {
@@ -159,28 +114,14 @@
         justify-content: space-between;
         padding: 0px 7px 0px 20px;
     }
-    &__header-top {
-        display: flex;
-        -webkit-box-align: center;
-        align-items: center;
-        -webkit-box-pack: justify;
-        justify-content: space-between;
-        padding: 0px 7px 0px 20px;
-    }
 
-    // .preview-box-inside__header-top-time
     // .preview-box-inside__header-top-time
 
     &__header-top-time {
         font-size: 10px;
         line-height: 12px;
     }
-    &__header-top-time {
-        font-size: 10px;
-        line-height: 12px;
-    }
 
-    // .preview-box-inside__header-bottom
     // .preview-box-inside__header-bottom
 
     &__header-bottom {
@@ -195,20 +136,7 @@
         align-content: center;
         gap: 5px;
     }
-    &__header-bottom {
-        background: rgb(227, 227, 227);
-        margin-top: 8px;
-        border-radius: 5px;
-        padding: 5px;
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        -webkit-box-align: center;
-        align-items: center;
-        align-content: center;
-        gap: 5px;
-    }
 
-    // .preview-box-inside__header-bottom-url-wrapper
     // .preview-box-inside__header-bottom-url-wrapper
 
     &__header-bottom-url-wrapper {
@@ -218,15 +146,7 @@
         overflow: hidden;
         padding: 0px 21px;
     }
-    &__header-bottom-url-wrapper {
-        display: flex;
-        -webkit-box-pack: start;
-        justify-content: flex-start;
-        overflow: hidden;
-        padding: 0px 21px;
-    }
 
-    // .preview-box-inside__header-bottom-url
     // .preview-box-inside__header-bottom-url
 
     &__header-bottom-url {
@@ -237,16 +157,7 @@
         font-size: 11px;
         line-height: 13px;
     }
-    &__header-bottom-url {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        display: inline-block;
-        font-size: 11px;
-        line-height: 13px;
-    }
 
-    // .preview-box-inside__content-wrapper
     // .preview-box-inside__content-wrapper
 
     &__content-wrapper {
@@ -256,15 +167,7 @@
         overflow: hidden;
         z-index: 0;
     }
-    &__content-wrapper {
-        flex: 1 1 0%;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 0;
-    }
 
-    // .preview-box-inside__content-container
     // .preview-box-inside__content-container
 
     &__content-container {
@@ -278,19 +181,7 @@
         flex-direction: column;
         overflow: hidden;
     }
-    &__content-container {
-        height: 100%;
-        width: 100%;
-        overflow: hidden auto;
-        position: relative;
-        height: 100%;
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-    }
 
-    // .preview-box-inside__content-img
     // .preview-box-inside__content-img
 
     &__content-img {
@@ -333,14 +224,7 @@
     }
 
     // .preview-box-inside__content-main
-    // .preview-box-inside__content-main
 
-    &__content-main {
-        padding: 10px 21px;
-        user-select: none;
-        background: rgb(248, 248, 248);
-        flex: 1 1 0%;
-    }
     &__content-main {
         padding: 10px 21px;
         user-select: none;
@@ -349,7 +233,6 @@
     }
 
     // .preview-box-inside__content-main-title
-    // .preview-box-inside__content-main-title
 
     &__content-main-title {
         font-size: 20px;
@@ -357,14 +240,7 @@
         font-weight: 500;
         margin-bottom: 4px;
     }
-    &__content-main-title {
-        font-size: 20px;
-        line-height: 28px;
-        font-weight: 500;
-        margin-bottom: 4px;
-    }
 
-    // .preview-box-inside__content-main-subtitle
     // .preview-box-inside__content-main-subtitle
 
     &__content-main-subtitle {
@@ -374,15 +250,7 @@
         color: rgb(148, 148, 148);
         margin-bottom: 20px;
     }
-    &__content-main-subtitle {
-        font-weight: 400;
-        font-size: 10px;
-        line-height: 14px;
-        color: rgb(148, 148, 148);
-        margin-bottom: 20px;
-    }
 
-    // .preview-box-inside__content-main-button
     // .preview-box-inside__content-main-button
 
     &__content-main-button {
@@ -397,27 +265,9 @@
         font-size: 11px;
         line-height: 13px;
     }
-    &__content-main-button {
-        cursor: default;
-        width: 100%;
-        text-align: center;
-        color: rgb(255, 255, 255);
-        background: rgb(0, 0, 0);
-        border-radius: 3px;
-        padding: 10px 32px;
-        font-weight: 600;
-        font-size: 11px;
-        line-height: 13px;
-    }
 
     // .preview-box-inside__footer
-    // .preview-box-inside__footer
 
-    &__footer {
-        overflow: hidden;
-        border-bottom-left-radius: 40px;
-        border-bottom-right-radius: 40px;
-    }
     &__footer {
         overflow: hidden;
         border-bottom-left-radius: 40px;

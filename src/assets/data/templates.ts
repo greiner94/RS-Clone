@@ -11,7 +11,7 @@ export const Templates = [
         nameOfTemplate: 'WebsiteURL',
         title: '2.Add content to the Website URL QR code',
         mainContent: `
-        <div class="preview-box-inside__content-container">
+        <div class="preview-box-inside__content-container website-url">
             <div class="preview-box-inside__content-img">
                 <img src="${imgURL}" alt="website-template">
             </div>
@@ -50,7 +50,7 @@ export const Templates = [
         nameOfTemplate: 'vCard',
         title: '2.Add content to the VCard QR code',
         mainContent: `
-        <div class="preview-box-inside__content-container">
+        <div class="preview-box-inside__content-container v-card">
             <img src="${vCard}" alt="vCard">
         </div>
         `,
