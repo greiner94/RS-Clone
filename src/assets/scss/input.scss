@@ -226,6 +226,11 @@
     display: none;
 }
 
+.invalid-input {
+    border-color: red;
+    color: red;
+}
+
 .half {
     width: 50%;
     border-right: 1px solid var(--color-light-grey); 

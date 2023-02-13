@@ -21,7 +21,7 @@ export function drawWebsiteTemplatesPage(url: string) {
     if (page !== 'customize') {
         addLSParams(LSParam.templatePage, page);
         previousPage = `#main`;
-        button = '<a href="#customize/"><button class="btn btn-next">Next</button></a>';
+        button = '<a href="#customize/"><button disabled class="btn btn-next">Next</button></a>';
     } else {
         previousPage = `#templates/${getLSParams(LSParam.templatePage)}`;
         button = `<div class="finish-btn">
