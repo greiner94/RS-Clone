@@ -64,7 +64,7 @@ export function drawMainContent(parentElement: HTMLElement): void {
         a.classList.add(`${MainPageBtn[i].text.toLowerCase().split(' ').join('-')}`, 'templates');
         const wrapTextCont = <HTMLDivElement>document.createElement('div');
         wrapTextCont.className = `main__wrap-text`;
-        li.className = 'main__btn-block';
+        li.classList.add('main__btn-block', `${MainPageBtn[i].text.toLowerCase().split(' ').join('-')}`, 'templates');
         li.innerHTML = `<span class="main__svg-icon">${MainPageBtn[i].svg}</span>`;
         wrapTextCont.innerHTML = `<p class="main__btn-name">${MainPageBtn[i].text}</p>
                                    <p class="main__btn-desc">${MainPageBtn[i].desc}</p>`;
