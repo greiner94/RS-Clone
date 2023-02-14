@@ -1,0 +1,83 @@
+.preview-box-inside {
+    // .preview-box-inside__content-container
+
+    &__content-container.smartphone-wi-fi {
+        min-height: 100%;
+        width: 100%;
+        padding: 49px 16px 57px;
+        text-align: center;
+        overflow: hidden;
+        word-break: break-word;
+        background: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        gap: 66px;
+    }
+
+    // .preview-box-inside__content-top
+
+    &__content-top.smartphone-wi-fi {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        -webkit-box-align: center;
+        align-items: center;
+        svg {
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    // .preview-box-inside__content-body
+
+    &__content-body.smartphone-wi-fi {
+        display: flex;
+        flex-direction: column;
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    // .preview-box-inside__content-body-text
+
+    &__content-body-text.smartphone-wi-fi {
+        min-height: 16px;
+        word-break: break-word;
+    }
+
+    // .preview-box-inside__content-btns
+
+    &__content-btns.smartphone-wi-fi {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    // .preview-box-inside__content-btn
+
+    &__content-btn.smartphone-wi-fi {
+    }
+}
+.btn-connect.smartphone-wi-fi {
+    border-radius: 3px;
+    padding: 9px 26px;
+    font-size: 10px;
+    line-height: 13px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: rgb(84, 130, 219);
+    cursor: default;
+}
+.btn-close.smartphone-wi-fi {
+    border-radius: 3px;
+    padding: 9px 26px;
+    font-size: 10px;
+    line-height: 13px;
+    text-align: center;
+    cursor: default;
+    color: rgb(84, 130, 219);
+    background: none;
+    border: 1px solid rgb(84, 130, 219);
+}

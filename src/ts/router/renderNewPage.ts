@@ -2,6 +2,7 @@ import customizePage from '../customizePage';
 import { drawMainPage } from '../draw-page/draw-main-page';
 import { drawWebsiteTemplatesPage } from '../draw-page/drawWebsiteTemplatesPage';
 import infoFromInputs from '../input-hendlers/infoFromInputs';
+import addListenersForLinks from '../listeners/addListenersForLinks';
 import getCustomizeQrCode from '../qr-code/getCustomizeQrCode';
 import getQrCode from '../qr-code/getQrCode';
 import { breadcrumbsHighlight } from '../state-element';
@@ -13,6 +14,7 @@ export default function renderNewPage(hash: string) {
         container.innerHTML = '';
         container.append(drawMainPage());
         breadcrumbsHighlight('main');
+        addListenersForLinks();
     }
     if (hash.includes('templates/')) {
         container.innerHTML = '';
