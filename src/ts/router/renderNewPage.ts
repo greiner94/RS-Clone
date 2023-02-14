@@ -1,3 +1,4 @@
+import customizePage from '../customizePage';
 import { drawMainPage } from '../draw-page/draw-main-page';
 import { drawWebsiteTemplatesPage } from '../draw-page/drawWebsiteTemplatesPage';
 import infoFromInputs from '../input-hendlers/infoFromInputs';
@@ -33,5 +34,6 @@ export default function renderNewPage(hash: string) {
         container.append(drawWebsiteTemplatesPage('customize'));
         breadcrumbsHighlight('customize');
         getCustomizeQrCode();
+        customizePage();
     }
 }
