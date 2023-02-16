@@ -13,6 +13,9 @@ export default function getQrCode() {
         localStorage.setItem('fetching', 'true');
         setQrToPreview(preloader, true);
 
+        const nextPrevBtns = document.querySelectorAll('.btn') as NodeListOf<HTMLElement>;
+        nextPrevBtns.forEach((btn) => btn.setAttribute('disabled', 'true'));
+
         setTimeout(() => {
             fetch(`https://qr-api-vks7.onrender.com/api/qr/${getUserID()}`, {
                 method: 'POST',
@@ -30,6 +33,7 @@ export default function getQrCode() {
                     localStorage.setItem('qrPath', res.fileName);
                     localStorage.setItem('qrBody', JSON.stringify(getQrParams()));
                     localStorage.removeItem('fetching');
+                    nextPrevBtns.forEach((btn) => btn.removeAttribute('disabled'));
                     resolve('success!');
                 })
                 .catch((err) => reject(err));

@@ -10,6 +10,7 @@ export default function renderCurrentLogoState() {
             const selectCorrection = (document.querySelectorAll('.select') as NodeListOf<HTMLSelectElement>)[1];
             if (selectCorrection.value != 'Level H 30%') {
                 selectCorrection.value = 'Level H 30%';
+                selectCorrection.setAttribute('disabled', 'true');
                 getQrCode().then(() => {
                     renderCurrentFrameState();
                     renderCurrentLogoState();
@@ -34,11 +35,11 @@ export default function renderCurrentLogoState() {
 
             switch (checkedFrameTypeIndex) {
                 case 2: {
-                    cloneImage.style.top = '41%';
+                    cloneImage.style.top = '42.5%';
                     break;
                 }
                 case 3: {
-                    cloneImage.style.top = '41%';
+                    cloneImage.style.top = '42.5%';
                     break;
                 }
                 default:
@@ -52,6 +53,9 @@ export default function renderCurrentLogoState() {
                 }
                 case 'Small': {
                     cloneImage.style.width = '26px';
+                    if (checkedFrameTypeIndex == 2 || checkedFrameTypeIndex == 3) {
+                        cloneImage.style.top = '37.5%';
+                    }
                     break;
                 }
                 default:

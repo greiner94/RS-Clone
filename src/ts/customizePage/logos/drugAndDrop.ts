@@ -19,7 +19,6 @@ export default function drugAndDrop() {
             logos.forEach((logo) => {
                 logos.forEach((logo) => logo.classList.remove('active'));
                 if (logo.classList.contains('frame-wrapper-by-drugging')) {
-                    console.log(logo);
                     logo.className = 'frame-wrapper';
                     checkedLogosBehaviour();
                     logo.click();

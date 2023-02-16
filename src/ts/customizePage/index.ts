@@ -4,12 +4,16 @@ import getQrCode from '../qr-code/getQrCode';
 import setQrToPreview from '../qr-code/setQrToPreview';
 import { renderCurrentFrameState } from './frames/renderCurrentFrameState';
 import renderCurrentLogoState from './logos/renderCurrentLogoState';
+import download from './download';
+import print from './print';
 
 export default function customizePage() {
     setQrToPreview(localStorage.getItem('qrPath') || '');
 
     frames();
     logos();
+    download();
+    print();
 
     const bgcInput = document.querySelector('#backgroundcolor') as HTMLInputElement;
     const transparentInput = document.querySelector('#transparentbackground') as HTMLInputElement;

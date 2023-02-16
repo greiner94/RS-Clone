@@ -211,9 +211,19 @@
     border: 2px solid var(--color-blue);
     border-radius: 150%;
 }
+.all-input-wrapper .frame-wrapper {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    img {
+        height: 97%;
+        width: 97%;
+        object-fit: contain;
+        border-radius: 50%;
+    }
+}
 
 .all-input-wrapper .frame-wrapper.active {
-    position: relative;
     &::after {
         display: block;
     }
@@ -289,7 +299,7 @@
     grid-template-columns: 50% 50%;
 }
 .all-input-wrapper.choose-block {
-    column-gap: 25px;
+    column-gap: 22px;
     row-gap: 6px;
 }
 .all-input-wrapper.upload-block {
