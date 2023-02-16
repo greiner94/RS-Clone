@@ -1,4 +1,4 @@
-export default function inputColor() {
+export default function inputColorBehaviour() {
     const colorInputsWrap = document.querySelectorAll('.input-color') as NodeListOf<HTMLInputElement>;
     colorInputsWrap.forEach((inputWrap) => {
         const colorInput = inputWrap.firstElementChild as HTMLInputElement;

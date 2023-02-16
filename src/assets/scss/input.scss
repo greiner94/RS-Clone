@@ -187,11 +187,36 @@
 }
 
 .all-input-wrapper .frame-wrapper:hover {
-    filter: drop-shadow(0 0 4px #47abd7);
+ position: relative;
+ &::after {
+    display: block;
+    top: -1px;
+    left: -1px;
+    position: absolute;
+    content: "";
+    width: 42px;
+    height: 42px;
+    border: 2px solid var(--color-blue);
+    border-radius: 150%;
+ }
+}
+.all-input-wrapper .frame-wrapper::after {
+    display: none;
+    top: -1px;
+    left: -1px;
+    position: absolute;
+    content: "";
+    width: 42px;
+    height: 42px;
+    border: 2px solid var(--color-blue);
+    border-radius: 150%;
 }
 
 .all-input-wrapper .frame-wrapper.active {
-    filter: drop-shadow(0 0 4px #47abd7);
+    position: relative;
+    &::after {
+        display: block;
+    }
 }
 
 .frame-wrapper:hover .selectable-button-check-mark {
@@ -294,6 +319,7 @@
     font-size: 18px;
 }
 .upload {
+    position: relative;
     margin: 0 auto;
     border: 1px dashed var(--color-light-grey);
     padding: 20px;
@@ -308,7 +334,20 @@
         padding-bottom: 0;
         margin-bottom: 0;
     }
+    &__input {
+        cursor: pointer;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        top: 0;
+        left: 0;
+    }
 }
+.draging {
+    transform: scale(1.05);
+    filter: sepia(1);
+  }
 
 @media all and (max-width: 998px) {
     .main {

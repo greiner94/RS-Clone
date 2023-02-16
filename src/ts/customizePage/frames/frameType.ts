@@ -1,6 +1,8 @@
-export default function frame() {
+import { renderCurrentFrameState } from './renderCurrentFrameState';
+
+export function frameType() {
     const allFrames = document.querySelectorAll('.frame-wrap-all .frame-wrapper') as NodeListOf<HTMLElement>;
-    allFrames.forEach((frameElem, index) => {
+    allFrames.forEach((frameElem) => {
         frameElem.addEventListener('click', () => {
             allFrames.forEach((frame) => frame.classList.remove('active'));
 
@@ -9,7 +11,7 @@ export default function frame() {
             } else {
                 frameElem.classList.add('active');
             }
-            console.log(index);
+            renderCurrentFrameState();
         });
     });
 }
