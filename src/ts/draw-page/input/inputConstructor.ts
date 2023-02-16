@@ -212,6 +212,10 @@ function getUploadLogo(): DocumentFragment {
     const icon = <HTMLElement>document.createElement('div');
     const p = <HTMLElement>document.createElement('p');
     const desc = <HTMLElement>document.createElement('p');
+    const input = <HTMLElement>document.createElement('input');
+    input.className = 'upload__input';
+    input.setAttribute('type', 'file');
+    input.setAttribute('accept', 'image/jpeg, image/png, image/jpg');
     uploadBlock.className = 'upload-block';
     nextDiv.className = 'upload';
     icon.className = 'upload__icon';
@@ -219,7 +223,7 @@ function getUploadLogo(): DocumentFragment {
     desc.className = 'upload__desc';
     p.textContent = 'Upload image (JPG, PNG, SVG)';
     desc.textContent = 'Maximum size 5 MB';
-    nextDiv.append(icon, p, desc);
+    nextDiv.append(icon, p, desc, input);
     uploadBlock.append(nextDiv);
     fragmentUpload.append(uploadBlock);
     return fragmentUpload;

@@ -25,7 +25,7 @@ export function drawWebsiteTemplatesPage(url: string) {
     } else {
         previousPage = `#templates/${getLSParams(LSParam.templatePage)}`;
         button = `<div class="finish-btn">
-                    <a href="" download><button class="btn btn-download">Download</button></a>
+                    <button class="btn btn-download">Download</button>
                     <button class="btn btn-print">Print</button>
                 </div>`;
     }
