@@ -9,6 +9,11 @@ import url from './stringCreators/url';
 import vCard from './stringCreators/vCard';
 import wiFi from './stringCreators/wiFi';
 
+interface IQrBody {
+    descr: string;
+    textString: string;
+}
+
 export default function getQrParams() {
     const listOfQrTypes = {
         WebsiteURL: url,
@@ -31,9 +36,10 @@ export default function getQrParams() {
             textString: listOfQrTypes[checkedQrType](),
         };
     } else {
+        const qrBody: IQrBody = JSON.parse(localStorage.getItem('qrBody') || '');
         return {
-            descr: '',
-            textString: '',
+            descr: qrBody.descr,
+            textString: qrBody.textString,
         };
     }
 }
