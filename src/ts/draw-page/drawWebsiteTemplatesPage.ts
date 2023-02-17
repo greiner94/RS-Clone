@@ -27,6 +27,7 @@ export function drawWebsiteTemplatesPage(url: string) {
         button = `<div class="finish-btn">
                     <button class="btn btn-download">Download</button>
                     <button class="btn btn-print">Print</button>
+                    <button class="btn btn-save" title="Save to watch later on dashboard">Save</button>
                 </div>`;
     }
     const templateIndex: number = Templates.findIndex(({ nameOfTemplate }) => page === nameOfTemplate);

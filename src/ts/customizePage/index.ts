@@ -6,6 +6,7 @@ import { renderCurrentFrameState } from './frames/renderCurrentFrameState';
 import renderCurrentLogoState from './logos/renderCurrentLogoState';
 import download from './download';
 import print from './print';
+import save from './save';
 
 export default function customizePage() {
     setQrToPreview(localStorage.getItem('qrPath') || '');
@@ -14,6 +15,7 @@ export default function customizePage() {
     logos();
     download();
     print();
+    save();
 
     const bgcInput = document.querySelector('#backgroundcolor') as HTMLInputElement;
     const transparentInput = document.querySelector('#transparentbackground') as HTMLInputElement;

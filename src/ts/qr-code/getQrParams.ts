@@ -10,6 +10,7 @@ import vCard from './stringCreators/vCard';
 import wiFi from './stringCreators/wiFi';
 
 interface IQrBody {
+    type: string;
     descr: string;
     textString: string;
 }
@@ -32,12 +33,14 @@ export default function getQrParams() {
 
     if (listOfQrTypes.hasOwnProperty(checkedQrType)) {
         return {
+            type: checkedQrType,
             descr: qrCodeName.value,
             textString: listOfQrTypes[checkedQrType](),
         };
     } else {
         const qrBody: IQrBody = JSON.parse(localStorage.getItem('qrBody') || '');
         return {
+            type: qrBody.type,
             descr: qrBody.descr,
             textString: qrBody.textString,
         };
