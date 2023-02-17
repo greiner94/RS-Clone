@@ -1,5 +1,6 @@
 import { SHARE } from '../../assets/data/modal-window-data';
 import drawModalWindow from '../draw-page/modal-window';
+import domtoimage from 'dom-to-image';
 
 export const tableListener = function (event: MouseEvent) {
     const target = event.target as SVGUseElement;
@@ -12,6 +13,9 @@ export const tableListener = function (event: MouseEvent) {
             copyUrl();
             break;
         case 'download':
+            const tableRow = target.closest('.table__row') as HTMLElement;
+            const qrWrap = <HTMLElement>tableRow.querySelector('.table__img-block');
+            download(qrWrap);
             break;
         case 'print':
             break;
@@ -34,5 +38,13 @@ function copyUrl(): void {
                 copyBtn.removeAttribute('style');
             }, 2000);
         });
+    });
+}
+function download(qrElement: HTMLElement) {
+    domtoimage.toPng(qrElement).then((dataUrl) => {
+        const link = document.createElement('a');
+        link.download = 'my-qr-code.png';
+        link.href = dataUrl;
+        link.click();
     });
 }
