@@ -18,6 +18,19 @@
     }
     &__search {
         width: 250px;
+        padding-left: 32px;
+    }
+    &__search-wrap {
+      position: relative;
+      &::before {
+        content: url("../images/icons/user-page/search_icon.svg");
+        vertical-align: middle;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        transform: translateY(60%);
+        left: 10px;
+      }
     }
 }
 .create-btn {
@@ -101,5 +114,8 @@
         min-height: calc(100vh - 150px - 112px);
     }
 
+  }
+  .hide {
+    display: none;
   }
   

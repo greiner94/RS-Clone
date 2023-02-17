@@ -2,7 +2,7 @@ import getHtmlOfHeader from '../getHtmlOfHeader';
 import getHtmlOfFooter from '../getHtmlOfFooter';
 import getUserQrCodeData from '../qr-code/getUserQrCodes';
 import { QrCodeData } from '../type/type';
-import { tableListener } from '../listeners/user-page-listener';
+import { tableListener, searchQr } from '../listeners/user-page-listener';
 
 export function drawUserPage(): DocumentFragment {
     const fragmentUserPage = <DocumentFragment>document.createDocumentFragment();
@@ -24,6 +24,7 @@ function getMainBlock(): DocumentFragment {
     const h2 = <HTMLElement>document.createElement('h2');
     const contentWrap = <HTMLElement>document.createElement('div');
     const searchBtnLine = <HTMLElement>document.createElement('div');
+    const searchWrap = <HTMLElement>document.createElement('div');
     const searchInput = <HTMLInputElement>document.createElement('input');
     const btnAnchor = <HTMLAnchorElement>document.createElement('a');
     const btn = <HTMLElement>document.createElement('button');
@@ -40,13 +41,16 @@ function getMainBlock(): DocumentFragment {
     btn.className = 'btn create-btn';
     contentWrap.className = 'main__user-content-wrap';
     searchBtnLine.className = 'main__search-btn-wrap';
+    searchWrap.className = 'main__search-wrap';
     tableWrap.className = 'main__table table';
     tableHeaderLine.className = 'table__header-row';
     tableContent.className = 'table__content';
     tableWrap.addEventListener('click', tableListener);
+    searchInput.addEventListener('input', searchQr);
     tableHeaderLine.innerHTML = getTableHeaderElement();
     btnAnchor.append(btn);
-    searchBtnLine.append(searchInput, btnAnchor);
+    searchWrap.append(searchInput);
+    searchBtnLine.append(searchWrap, btnAnchor);
     tableWrap.append(tableHeaderLine, tableContent);
     contentWrap.append(searchBtnLine, tableWrap);
     fragmentMainBlock.append(h2, contentWrap);
@@ -80,7 +84,6 @@ export async function getTableContent(): Promise<void> {
     const fragmentTableContent = <DocumentFragment>document.createDocumentFragment();
     try {
         const userData: QrCodeData[] = await getUserQrCodeData();
-        console.log('userData', userData);
         userData.forEach(({ descr, fileName }, ind) => {
             const row = <HTMLElement>document.createElement('div');
             const spanChoose = <HTMLElement>document.createElement('span');

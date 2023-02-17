@@ -7,12 +7,6 @@ export default async function getUserQrCodeData(): Promise<QrCodeData[]> {
     console.log('response', response);
     const data = await response.json();
     console.log('data', data);
-    // const { data, error } = await response.json();
-    // console.log('data', data);
-    // console.log('error', error);
-    // if (error) {
-    //     throw new Error(error.message ?? 'Custom Error');
-    // }
     const userData: QrCodeData[] = JSON.parse(JSON.stringify(data));
     return userData;
 }

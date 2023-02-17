@@ -21,6 +21,7 @@ export const tableListener = function (event: MouseEvent) {
             print(qrWrap);
             break;
         case 'delete':
+            deleteQr();
             break;
     }
     console.log('btnData', btnData);
@@ -58,6 +59,23 @@ function print(qrElement: HTMLElement) {
             a.document.write('</body></html>');
             a.document.close();
             a.print();
+        }
+    });
+}
+function deleteQr() {
+    //
+}
+
+export function searchQr() {
+    const searchInput = <HTMLInputElement>document.querySelector('.main__search');
+    const nameEls = <NodeListOf<HTMLElement>>document.querySelectorAll('.table__qr-name');
+    const tableRows = <NodeListOf<HTMLElement>>document.querySelectorAll('.table__row');
+    const nameArr = [...nameEls];
+    nameArr.forEach((el, ind) => {
+        if (!el.textContent?.includes(searchInput.value)) {
+            tableRows[ind].classList.add('hide');
+        } else {
+            tableRows[ind].classList.remove('hide');
         }
     });
 }
