@@ -6,18 +6,19 @@ export const tableListener = function (event: MouseEvent) {
     const target = event.target as SVGUseElement;
     const tableBtn = target.closest('.table__btn') as HTMLElement;
     const btnData = tableBtn.dataset.btn;
+    const url = tableBtn.dataset.url as string;
+    const tableRow = target.closest('.table__row') as HTMLElement;
+    const qrWrap = <HTMLElement>tableRow.querySelector('.table__img-block');
     switch (btnData) {
         case 'share':
-            const url = tableBtn.dataset.url as string;
             drawModalWindow(SHARE, url);
             copyUrl();
             break;
         case 'download':
-            const tableRow = target.closest('.table__row') as HTMLElement;
-            const qrWrap = <HTMLElement>tableRow.querySelector('.table__img-block');
             download(qrWrap);
             break;
         case 'print':
+            print(qrWrap);
             break;
         case 'delete':
             break;
@@ -46,5 +47,17 @@ function download(qrElement: HTMLElement) {
         link.download = 'my-qr-code.png';
         link.href = dataUrl;
         link.click();
+    });
+}
+function print(qrElement: HTMLElement) {
+    domtoimage.toPng(qrElement).then((dataUrl) => {
+        const a = window.open('', '', 'height=500, width=500');
+        if (a) {
+            a.document.write('<html>');
+            a.document.write(`<img src=${dataUrl}>`);
+            a.document.write('</body></html>');
+            a.document.close();
+            a.print();
+        }
     });
 }
