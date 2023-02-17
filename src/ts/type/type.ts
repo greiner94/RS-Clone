@@ -43,3 +43,10 @@ export type qrTypes =
     | 'Calendar'
     | 'Geolocation'
     | 'PhoneNumber';
+
+export interface QrCodeData {
+    userId: string;
+    descr: string;
+    fileName: string;
+    id: number;
+}

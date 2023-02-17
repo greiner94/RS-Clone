@@ -23,6 +23,9 @@ export default function getHtmlOfHeader() {
             <div class="header__logo-title">
                 <span>QR</span><span>Word</span>
             </div>
+            </a>
+            <a class="user-qr" href="#yourQR">
+            <button class="btn btn-user-qr">Your QR Codes</button>
             </a>   
     `;
 }

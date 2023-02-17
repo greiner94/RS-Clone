@@ -185,6 +185,7 @@ a{
     .main {
         &__list {
             width: min-content;
+            margin: 0 auto;
         }
         &__btn-name {
             font-size: calc(20px * 100vw / 1040px );

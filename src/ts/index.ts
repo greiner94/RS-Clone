@@ -1,5 +1,6 @@
 import '../assets/scss/style.scss';
 import '../pages/index.html';
+import { drawUserPage, getTableContent } from './draw-page/draw-user-page';
 import getHtmlOfFooter from './getHtmlOfFooter';
 import getHtmlOfHeader from './getHtmlOfHeader';
 import renderNewPage from './router/renderNewPage';
@@ -12,3 +13,6 @@ document.querySelector('footer')?.insertAdjacentHTML('beforeend', getHtmlOfFoote
 const hash = window.location.hash.slice(1);
 renderNewPage(hash);
 routeChange();
+// document.body.innerHTML = '';
+// document.body.append(drawUserPage());
+// getTableContent();
