@@ -5,35 +5,23 @@ import { drawSmartphoneBlock } from './drawWebsiteTemplatesPage';
 export function drawMainPage() {
     const fragmentStartPage = <DocumentFragment>document.createDocumentFragment();
     const allWrapper = <HTMLDivElement>document.createElement('div');
-    // const headerBlock = <HTMLElement>document.createElement('header');
-    // const mainBlock = <HTMLElement>document.createElement('main');
     const breadcrumbsBlock = <HTMLElement>document.createElement('div');
     const contentWrap = <HTMLElement>document.createElement('div');
     const mainContent = <HTMLElement>document.createElement('div');
     const smartphoneBlock = <HTMLElement>document.createElement('div');
     const container = <HTMLElement>document.createElement('div');
-    // const footerBlock = <HTMLElement>document.createElement('footer');
     allWrapper.className = 'all-wrapper';
     container.className = 'container';
-    // headerBlock.className = 'header';
-    // mainBlock.className = 'main';
     breadcrumbsBlock.className = 'breadcrumbs';
     contentWrap.className = 'main__content-wrap';
     mainContent.className = 'main__content';
     smartphoneBlock.className = 'smartphone';
-    // footerBlock.className = 'footer';
-    // drawHeaderBlock(headerBlock);
     breadcrumbsBlock.append(drawBreadcrumbs());
     drawMainContent(mainContent);
     drawSmartphoneBlock(smartphoneBlock, '', true);
-    // drawFooterBlock(footerBlock);
-    // contentWrap.append(mainContent, smartphoneBlock);
-    // mainBlock.append(breadcrumbsBlock, contentWrap);
     contentWrap.append(mainContent, smartphoneBlock);
-    // allWrapper.append(mainBlock);
     container.append(breadcrumbsBlock, contentWrap);
     fragmentStartPage.append(container);
-    // document.body.append(fragmentStartPage);
     return fragmentStartPage;
 }
 

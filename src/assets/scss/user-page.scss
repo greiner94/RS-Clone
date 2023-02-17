@@ -75,16 +75,6 @@
       justify-self: end;
 
     }
-    // &__btn {
-    //   border: 1px solid var(--color-blue);
-    //   display: inline-block;
-    //   width: 150px;
-    //   padding: 10px 10px 10px 40px;
-    //   border-radius: 5px;
-    //   text-align: left;
-    //   color: var(--color-blue);
-      
-    // }
     &__choose {
       grid-column: 1;
     }
@@ -93,14 +83,9 @@
     }
   }
   .table__btn {
-    //border: 1px solid #3789ac;
-    &__share {
-      
-    }
+    transition: all 200ms ease-in-out;
   }
-  .table-btn-svg-colors {
-    
-  }
+  
   .table__btn:hover .table-btn-svg-colors {
     
     --color-hover: rgb(254, 140, 37);;
@@ -108,7 +93,7 @@
 
   .empty-table {
     text-align: center;
-    color: var(--color-light-grey);
+    color: var(--color-light-gray);
   }
 
   @media (max-width: 700px) {

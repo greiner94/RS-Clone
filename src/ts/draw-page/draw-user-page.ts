@@ -106,7 +106,7 @@ export async function getTableContent(): Promise<void> {
             spanQrImg.innerHTML = `<img src=${fileName} class="table__qr-img">`;
             spanQrName.textContent = descr;
             divBtns.innerHTML = `
-                <div class="table-btn__share table__btn" data-btn="share">
+                <div class="table-btn__share table__btn" data-btn="share" data-url="${fileName}">
                 <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <symbol id="btn-share${ind + 1}">
                     <g clip-path="url(#clip0_205_3175)">
@@ -123,7 +123,7 @@ export async function getTableContent(): Promise<void> {
                         </svg>
                     </svg>
                 </div>
-                <div class="table-btn__download table__btn" data-btn="download">
+                <div class="table-btn__download table__btn" data-btn="download" data-url="${fileName}">
                 <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <symbol id="btn-download${ind + 1}">
                     <path d="M7.61719 15.3118C8.10547 15.7411 8.89844 15.7411 9.38672 15.3118L15.6367 9.81731C16.125 9.38805 16.125 8.69093 15.6367 8.26167C15.1484 7.83242 14.3555 7.83242 13.8672 8.26167L9.75 11.8846V1.3489C9.75 0.741071 9.19141 0.25 8.5 0.25C7.80859 0.25 7.25 0.741071 7.25 1.3489V11.8812L3.13281 8.26511C2.64453 7.83585 1.85156 7.83585 1.36328 8.26511C0.875 8.69437 0.875 9.39148 1.36328 9.82074L7.61328 15.3152L7.61719 15.3118Z" fill="var(--color-hover, #47abd7)"/>

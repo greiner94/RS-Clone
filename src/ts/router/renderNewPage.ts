@@ -6,7 +6,6 @@ import getQrCode from '../qr-code/getQrCode';
 import { breadcrumbsHighlight } from '../state-element';
 import isValid from '../validation/isValide';
 import { drawUserPage, getTableContent } from '../draw-page/draw-user-page';
-import { tableListener } from '../listeners/user-page-listener';
 
 export default function renderNewPage(hash: string) {
     const container = document.querySelector('main') as HTMLElement;

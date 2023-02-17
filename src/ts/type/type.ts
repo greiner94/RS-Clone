@@ -50,3 +50,9 @@ export interface QrCodeData {
     fileName: string;
     id: number;
 }
+
+export interface ModalData {
+    h3: string;
+    desc: string;
+    content: string;
+}

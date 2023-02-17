@@ -23,7 +23,7 @@
 }
 
 .hide-block {
-    border-bottom: 1px solid var(--color-light-grey);
+    border-bottom: 1px solid var(--color-light-gray);
     margin-bottom: 30px;
     position: relative;
     transition: all 200ms ease-in-out;
@@ -81,7 +81,7 @@
 
 .input,
 .textarea {
-    border: 1px solid var(--color-light-grey);
+    border: 1px solid var(--color-light-gray);
     border-radius: 10px;
     width: 360px;
     height: 45px;
@@ -101,7 +101,7 @@
 
 .input::placeholder,
 .textarea::placeholder {
-    color: var(--color-light-grey);
+    color: var(--color-light-gray);
 }
 
 .select {
@@ -134,7 +134,7 @@
   
     width: 360px;
     height: 45px;
-    border: 1px solid var(--color-light-grey);
+    border: 1px solid var(--color-light-gray);
     border-radius: 10px;
     padding: 5px 15px 0 0 ;
     cursor: pointer;
@@ -151,7 +151,7 @@
 .input[type="checkbox"] {
     position: relative;
     width: 20px;
-    border: 1px solid var(--color-light-grey);
+    border: 1px solid var(--color-light-gray);
     grid-column: 1;
     grid-row: 1;
 }
@@ -268,7 +268,7 @@
         top: 2px;
         width: 40px;
         height: 40px;
-        background: var(--color-light-grey);
+        background: var(--color-light-gray);
         clip-path: circle(16px at center);
     }
 }
@@ -283,7 +283,7 @@
 
 .half {
     width: 50%;
-    border-right: 1px solid var(--color-light-grey); 
+    border-right: 1px solid var(--color-light-gray); 
     flex-wrap: wrap;
     column-gap: 15px;
     row-gap: 5px;
@@ -309,7 +309,7 @@
     padding-left: 30px;
 }
 .select-upload-wrap:first-child {
-    border-right: 1px solid var(--color-light-grey);
+    border-right: 1px solid var(--color-light-gray);
     padding-right: 30px;
     position: relative;
 }
@@ -318,7 +318,7 @@
     display: block;
     width: 30px;
     height: 30px;
-    color: var(--color-light-grey);
+    color: var(--color-light-gray);
     background: var(--color-white);
     position: absolute;
     right: -15px;
@@ -331,10 +331,10 @@
 .upload {
     position: relative;
     margin: 0 auto;
-    border: 1px dashed var(--color-light-grey);
+    border: 1px dashed var(--color-light-gray);
     padding: 20px;
     text-align: center;
-    color: var(--color-light-grey);
+    color: var(--color-light-gray);
     &__icon {
         content: url('../images/icons/upload_icon.svg');
         margin: 0 auto;
@@ -385,7 +385,7 @@
     }
     .select-upload-wrap:first-child {
         border-right: none;
-        border-bottom: 1px solid var(--color-light-grey);
+        border-bottom: 1px solid var(--color-light-gray);
         //padding-bottom: 10px;
         padding-right: 10px;
         position: relative;
@@ -411,23 +411,20 @@
         height: 5px;
     }
       
-      /* Track */
-      .frame-wrap-all::-webkit-scrollbar-track {
+    .frame-wrap-all::-webkit-scrollbar-track {
         box-shadow: inset 0 0 3px grey; 
         border-radius: 10px;
-      }
-       
-      /* Handle */
-      .frame-wrap-all::-webkit-scrollbar-thumb {
+    }
+    
+    .frame-wrap-all::-webkit-scrollbar-thumb {
         background: var(--color-blue); 
         border-radius: 2.5px;
-      }
-      
-      /* Handle on hover */
-      .frame-wrap-all::-webkit-scrollbar-thumb:hover {
+    }
+    
+    .frame-wrap-all::-webkit-scrollbar-thumb:hover {
         background: var(--color-blue); 
-      }
-      .button-action .btn {
+    }
+    .button-action .btn {
         margin-right: 0;
-      }
+    }
 }
