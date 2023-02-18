@@ -5,6 +5,9 @@ import preloader from '../../assets/images/smartphone/preloader.gif';
 import getQrStyles from './getQrStyles';
 
 export default function getQrCode() {
+    const nextPrevBtns = document.querySelectorAll('.btn') as NodeListOf<HTMLElement>;
+    nextPrevBtns.forEach((btn) => btn.setAttribute('disabled', 'true'));
+
     return new Promise((resolve, reject) => {
         if (localStorage.getItem('fetching')) {
             return;
@@ -12,9 +15,6 @@ export default function getQrCode() {
 
         localStorage.setItem('fetching', 'true');
         setQrToPreview(preloader, true);
-
-        const nextPrevBtns = document.querySelectorAll('.btn') as NodeListOf<HTMLElement>;
-        nextPrevBtns.forEach((btn) => btn.setAttribute('disabled', 'true'));
 
         setTimeout(() => {
             fetch(`https://qr-api-vks7.onrender.com/api/qr/${getUserID()}`, {
