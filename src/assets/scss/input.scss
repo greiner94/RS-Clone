@@ -234,11 +234,13 @@
 }
 
 .frame-wrapper:hover .finish-icon-color {
+    --color-active: #47abd7;
     --color-hover: #47abd7;
 }
 
 .frame-wrapper.active  .finish-icon-color{
     --color-active: #47abd7;
+    --color-hover: #47abd7;
 }
 
 .logo-wrapper {
