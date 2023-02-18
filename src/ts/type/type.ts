@@ -46,6 +46,7 @@ export type qrTypes =
 
 export interface QrCodeData {
     userId: string;
+    type: string;
     descr: string;
     fileName: string;
     id: number;

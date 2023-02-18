@@ -73,7 +73,7 @@ function getTableHeaderElement(): string {
         '<span class="table__header-element">Select all</span>',
         '<span class="table__header-element">QR code name</span>',
         '<span class="table__header-element">QR code type</span>',
-        '<span class="table__header-element"></span>',
+        '<span class="table__header-element insert-btn"><button class="table__header-del-btn" disabled>Delete Selected</span>',
     ];
     return headerElement.join('');
 }
@@ -84,7 +84,7 @@ export async function getTableContent(): Promise<void> {
     const fragmentTableContent = <DocumentFragment>document.createDocumentFragment();
     try {
         const userData: QrCodeData[] = await getUserQrCodeData();
-        userData.forEach(({ descr, fileName }, ind) => {
+        userData.forEach(({ type, descr, fileName, id }, ind) => {
             const row = <HTMLElement>document.createElement('div');
             const spanChoose = <HTMLElement>document.createElement('span');
             const spanQrImg = <HTMLElement>document.createElement('span');
@@ -92,7 +92,8 @@ export async function getTableContent(): Promise<void> {
             const spanQrType = <HTMLElement>document.createElement('span');
             const divBtns = <HTMLElement>document.createElement('div');
             row.className = 'table__row';
-            spanChoose.className = 'table__choose';
+            spanChoose.className = 'table__choose single-shoose';
+            spanChoose.dataset.id = `${id}`;
             spanQrImg.className = 'table__img-block';
             spanQrName.className = 'table__qr-name';
             spanQrType.className = 'table__qr-type';
@@ -108,6 +109,7 @@ export async function getTableContent(): Promise<void> {
             </svg>`;
             spanQrImg.innerHTML = `<img src=${fileName} class="table__qr-img">`;
             spanQrName.textContent = descr;
+            spanQrType.textContent = type;
             divBtns.innerHTML = `
                 <div class="table-btn__share table__btn" data-btn="share" data-url="${fileName}">
                 <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -154,7 +156,7 @@ export async function getTableContent(): Promise<void> {
                 </svg>
                 </svg>
                 </div>
-                <div class="table-btn__delete  table__btn" data-btn="delete">
+                <div class="table-btn__delete  table__btn" data-btn="delete" data-id=${id}>
                 <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <symbol id="btn-delete${ind + 1}">
                     <g clip-path="url(#clip0_204_3171)">
@@ -175,12 +177,15 @@ export async function getTableContent(): Promise<void> {
             fragmentTableContent.append(row);
         });
     } catch {
-        const div = <HTMLElement>document.createElement('div');
-        const p = <HTMLElement>document.createElement('p');
-        div.className = 'empty-table';
-        p.textContent = `You don't have any QR code. Click Create QR code`;
-        div.append(p);
-        fragmentTableContent.append(div);
+        if (!document.querySelector('.empty-table')) {
+            const div = <HTMLElement>document.createElement('div');
+            const p = <HTMLElement>document.createElement('p');
+            div.className = 'empty-table';
+            p.textContent = `You don't have any QR code. Click Create QR code`;
+            div.append(p);
+            fragmentTableContent.append(div);
+        }
     }
     tableContentWrap.append(fragmentTableContent);
+    console.log('draw table');
 }

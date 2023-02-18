@@ -1,6 +1,7 @@
 .modal {
     position: fixed;
-    max-width: 80%;
+    max-width: 800px;
+    width: 80%;
     right: 0;
     left: 0;
     margin: auto;
@@ -43,16 +44,19 @@
         border: 1px solid var(--color-light-gray);
         border-radius: 5px;
         line-height: 25px;
-        padding: 10px 5px 10px 7px;
+        padding: 10px 5px 10px 20px;
         height: 40px;
         overflow: hidden;
         display: inline-block;
+        text-align: left;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         
         &::before {
             content: url('../images/icons/user-page/copy_icon.svg');
             display: inline-block;
             vertical-align: middle;
-            margin-right: 5px;
+            margin-right: 17px;
         }
     }
     &__copy-btn {

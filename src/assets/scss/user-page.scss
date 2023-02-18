@@ -44,6 +44,9 @@
     border-radius: 5px;
     cursor: pointer;
     padding: 0 15px;
+    &:hover {
+      background-color: darken($color: rgb(254, 140, 37), $amount: 4);
+  }
 }
 
 .table__choose.active .btn-check-svg-colors {
@@ -93,7 +96,28 @@
     }
     &__img-block {
       grid-column: 2;
+      padding: 10px 0;
     }
+    &__header-del-btn {
+      font-weight: bold;
+      background: var(--color-blue);
+      color: var(--color-white);
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 200ms ease-in-out;
+      &:hover {
+        background-color: darken($color: rgb(37, 211, 254), $amount: 4);
+      }
+      &:disabled {
+        filter: grayscale(100%);
+      }
+      &:disabled:hover {
+        filter: grayscale(100%);
+      }
+    }
+    
   }
   .table__btn {
     transition: all 200ms ease-in-out;
