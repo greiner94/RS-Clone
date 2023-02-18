@@ -21,6 +21,7 @@ export function renderCurrentFrameState() {
         case 1: {
             frameWrapper.className = frameWrapperBaseClass + ' ' + frameWrapperBaseClass + '_small';
             textWrapper.className = textWrapperBaseClass + ' ' + textWrapperBaseClass + '_separate';
+            frameWrapper.style.borderColor = checkedFrameColor;
             frameWrapper.insertAdjacentElement('beforeend', textWrapper);
             break;
         }

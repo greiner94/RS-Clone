@@ -3,7 +3,10 @@ import getUserID from '../qr-code/getUserID';
 
 export default function save() {
     const saveBtn = document.querySelector('.btn-save') as HTMLElement;
+    saveBtn.removeAttribute('disabled');
     saveBtn.addEventListener('click', () => {
+        if (saveBtn.getAttribute('disabled')) return;
+        saveBtn.setAttribute('disabled', 'true');
         const qrElement = document.querySelector('.template__preview-qr-wrapper') as HTMLElement;
         const { type, descr } = JSON.parse(localStorage.getItem('qrBody') || '');
         domtoimage.toPng(qrElement).then((dataUrl) => {
@@ -26,7 +29,6 @@ export default function save() {
                             saveBtn.textContent = 'Save';
                             saveBtn.style.background = '#1183bc';
                         }, 1500);
-                        console.log('saved!');
                     }
                 })
                 .catch((err) => {
@@ -34,5 +36,9 @@ export default function save() {
                     console.log(err);
                 });
         });
+
+        setTimeout(() => {
+            saveBtn.removeAttribute('disabled');
+        }, 2500);
     });
 }

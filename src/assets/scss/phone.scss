@@ -93,15 +93,16 @@
     &__preview-qr-wrapper {
         position: relative;
         border-radius: 18px;
-        // margin: 10px;
-        border: 3px solid black;
         &_none {
+            border: 3px solid black;
             border: none;
         }
         &_small {
+            border: 3px solid black;
             padding: 10px;
         }
         &_large {
+            border: 3px solid black;
             padding: 10px 10px 48px 10px;
         }
     }
