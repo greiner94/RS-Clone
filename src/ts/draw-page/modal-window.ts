@@ -26,7 +26,6 @@ function drawModalWindow(modalData: ModalData, url: string): void {
 }
 
 function closeModal() {
-    console.log('close window');
     const modalWrap = <HTMLElement>document.querySelector('.modal');
     const blackout = <HTMLElement>document.querySelector('.blackout');
     modalWrap.remove();

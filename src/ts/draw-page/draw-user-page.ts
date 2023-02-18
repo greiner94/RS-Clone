@@ -71,19 +71,73 @@ function getTableHeaderElement(): string {
             </svg>
         </span>`,
         '<span class="table__header-element">Select all</span>',
-        '<span class="table__header-element">QR code name</span>',
-        '<span class="table__header-element">QR code type</span>',
+        `<div class="qr-name-wrap"><span class="table__header-element qr-name" data-az="za" >QR code name</span>
+        <span class="sort-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <symbol id="btn-sort1">
+                    <path d="M11.8079 18.7695L8.09346 14.3121C7.65924 13.7911 8.02976 13 8.70803 13L15.292 13C15.9702 13 16.3408 13.7911 15.9065 14.3121L12.1921 18.7695C12.0921 18.8895 11.9079 18.8895 11.8079 18.7695Z" fill="var(--color-up, #B6C4D8)"></path>
+                    <path d="M12.1921 5.23047L15.9065 9.68785C16.3408 10.2089 15.9702 11 15.292 11L8.70803 11C8.02976 11 7.65924 10.2089 8.09346 9.68785L11.8079 5.23047C11.9079 5.11053 12.0921 5.11053 12.1921 5.23047Z" fill="var(--color-down, #B6C4D8)"></path>
+                </symbol> 
+                <svg class="btn-svg-sort-colors">
+                    <use xlink:href="#btn-sort1" />
+                </svg>
+            </svg>
+        </span>
+        </div>`,
+        `<div class="qr-type-wrap"><span class="table__header-element qr-type" data-az="za">QR code type</span>
+        <span class="sort-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <symbol id="btn-sort2">
+                    <path d="M11.8079 18.7695L8.09346 14.3121C7.65924 13.7911 8.02976 13 8.70803 13L15.292 13C15.9702 13 16.3408 13.7911 15.9065 14.3121L12.1921 18.7695C12.0921 18.8895 11.9079 18.8895 11.8079 18.7695Z" fill="var(--color-up, #B6C4D8)"></path>
+                    <path d="M12.1921 5.23047L15.9065 9.68785C16.3408 10.2089 15.9702 11 15.292 11L8.70803 11C8.02976 11 7.65924 10.2089 8.09346 9.68785L11.8079 5.23047C11.9079 5.11053 12.0921 5.11053 12.1921 5.23047Z" fill="var(--color-down, #B6C4D8)"></path>
+                </symbol> 
+                    <svg class="btn-svg-sort-colors">
+                    <use  xlink:href="#btn-sort2" />
+                </svg>
+            </svg>
+        </span>
+        </div>`,
         '<span class="table__header-element insert-btn"><button class="table__header-del-btn" disabled>Delete Selected</span>',
     ];
     return headerElement.join('');
 }
 
-export async function getTableContent(): Promise<void> {
+export async function getTableContent(sortBy = '', odered = 'az'): Promise<void> {
     const tableContentWrap = <HTMLElement>document.querySelector('.table__content');
     tableContentWrap.innerHTML = '';
     const fragmentTableContent = <DocumentFragment>document.createDocumentFragment();
     try {
         const userData: QrCodeData[] = await getUserQrCodeData();
+        if (sortBy === 'name') {
+            if (odered === 'az') {
+                userData.sort((a, b) => {
+                    const nameA = a.descr.toLowerCase() as string;
+                    const nameB = b.descr.toLowerCase() as string;
+                    return nameA < nameB ? -1 : 1;
+                });
+            } else {
+                userData.sort((a, b) => {
+                    const nameA = a.descr.toLowerCase() as string;
+                    const nameB = b.descr.toLowerCase() as string;
+                    return nameA > nameB ? -1 : 1;
+                });
+            }
+        }
+        if (sortBy === 'type') {
+            if (odered === 'az') {
+                userData.sort((a, b) => {
+                    const typeA = a.type.toLowerCase() as string;
+                    const typeB = b.type.toLowerCase() as string;
+                    return typeA < typeB ? -1 : 1;
+                });
+            } else {
+                userData.sort((a, b) => {
+                    const typeA = a.type.toLowerCase() as string;
+                    const typeB = b.type.toLowerCase() as string;
+                    return typeA > typeB ? -1 : 1;
+                });
+            }
+        }
         userData.forEach(({ type, descr, fileName, id }, ind) => {
             const row = <HTMLElement>document.createElement('div');
             const spanChoose = <HTMLElement>document.createElement('span');
@@ -187,5 +241,4 @@ export async function getTableContent(): Promise<void> {
         }
     }
     tableContentWrap.append(fragmentTableContent);
-    console.log('draw table');
 }

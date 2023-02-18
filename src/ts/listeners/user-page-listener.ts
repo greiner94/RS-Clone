@@ -35,11 +35,6 @@ export const tableListener = function (event: MouseEvent) {
         const headerDeleteBtn = <HTMLElement>document.querySelector('.table__header-del-btn');
         const allChecker = <NodeListOf<HTMLElement>>document.querySelectorAll('.table__choose');
         const allSingleChecker = <NodeListOf<HTMLElement>>document.querySelectorAll('.single-shoose');
-        console.log('allSingleChecker.length', allSingleChecker.length);
-        console.log(
-            'checkSquare === allChooseEl && allSingleChecker.length > 0',
-            checkSquare === allChooseEl && allSingleChecker.length > 0
-        );
         if (checkSquare === allChooseEl && allSingleChecker.length > 0) {
             if (checkSquare.classList.contains('active')) {
                 [...allChecker].forEach((el) => {
@@ -74,12 +69,47 @@ export const tableListener = function (event: MouseEvent) {
                 return Number(el.dataset.id);
             }
         });
-        console.log('idArr', idArr);
         deleteSomeQr(idArr as number[]);
         allChooseEl.classList.remove('active');
         headerDeleteBtn.setAttribute('disabled', 'true');
     }
-    console.log('target', target);
+    const qrNames = document.querySelectorAll('.table__qr-name');
+    if (target.closest('.qr-name-wrap') && qrNames.length > 0) {
+        const qrNameWrap = <HTMLElement>target.closest('.qr-name-wrap');
+        const qrNamesHeader = <HTMLElement>qrNameWrap.querySelector('.qr-name');
+        const arrowType = <HTMLElement>document.querySelector('.qr-type-wrap .sort-arrow');
+        const arrow = <HTMLElement>qrNameWrap.querySelector('.sort-arrow');
+        arrowType.classList.remove('down', 'up');
+        let odered;
+        if (qrNamesHeader.dataset.az === 'az') {
+            qrNamesHeader.dataset.az = odered = 'za';
+            arrow.classList.add('down');
+            arrow.classList.remove('up');
+        } else {
+            qrNamesHeader.dataset.az = odered = 'az';
+            arrow.classList.add('up');
+            arrow.classList.remove('down');
+        }
+        getTableContent('name', odered);
+    }
+    if (target.closest('.qr-type-wrap') && qrNames.length > 0) {
+        const qrTypeWrap = <HTMLElement>target.closest('.qr-type-wrap');
+        const qrTypeHeader = <HTMLElement>qrTypeWrap.querySelector('.qr-type');
+        const arrowName = <HTMLElement>document.querySelector('.qr-name-wrap .sort-arrow');
+        const arrow = <HTMLElement>qrTypeWrap.querySelector('.sort-arrow');
+        arrowName.classList.remove('down', 'up');
+        let odered;
+        if (qrTypeHeader.dataset.az === 'az') {
+            qrTypeHeader.dataset.az = odered = 'za';
+            arrow.classList.add('down');
+            arrow.classList.remove('up');
+        } else {
+            qrTypeHeader.dataset.az = odered = 'az';
+            arrow.classList.add('up');
+            arrow.classList.remove('down');
+        }
+        getTableContent('type', odered);
+    }
 };
 
 function copyUrl(): void {

@@ -33,7 +33,7 @@ export default function save() {
                 })
                 .catch((err) => {
                     saveBtn.textContent = 'Error!';
-                    console.log(err);
+                    //console.log(err);
                 });
         });
 
