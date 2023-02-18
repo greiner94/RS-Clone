@@ -59,7 +59,7 @@ function getMainBlock(): DocumentFragment {
 
 function getTableHeaderElement(): string {
     const headerElement = [
-        `<span class="all-choose choose">
+        `<span class="all-choose table__choose">
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <symbol id="btn-check">
             <rect x="0.5" y="0.5" width="29" height="29" rx="9.5" fill="var(--check-mark-bg, #ffffff)" stroke="#C1C1C1"/>

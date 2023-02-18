@@ -4,27 +4,50 @@ import domtoimage from 'dom-to-image';
 
 export const tableListener = function (event: MouseEvent) {
     const target = event.target as SVGUseElement;
-    const tableBtn = target.closest('.table__btn') as HTMLElement;
-    const btnData = tableBtn.dataset.btn;
-    const url = tableBtn.dataset.url as string;
-    const tableRow = target.closest('.table__row') as HTMLElement;
-    const qrWrap = <HTMLElement>tableRow.querySelector('.table__img-block');
-    switch (btnData) {
-        case 'share':
-            drawModalWindow(SHARE, url);
-            copyUrl();
-            break;
-        case 'download':
-            download(qrWrap);
-            break;
-        case 'print':
-            print(qrWrap);
-            break;
-        case 'delete':
-            deleteQr();
-            break;
+    if (target.closest('.table__btn')) {
+        const tableBtn = target.closest('.table__btn') as HTMLElement;
+        const btnData = tableBtn.dataset.btn;
+        const url = tableBtn.dataset.url as string;
+        const tableRow = target.closest('.table__row') as HTMLElement;
+        const qrWrap = <HTMLElement>tableRow.querySelector('.table__img-block');
+        switch (btnData) {
+            case 'share':
+                drawModalWindow(SHARE, url);
+                copyUrl();
+                break;
+            case 'download':
+                download(qrWrap);
+                break;
+            case 'print':
+                print(qrWrap);
+                break;
+            case 'delete':
+                deleteQr();
+                break;
+        }
     }
-    console.log('btnData', btnData);
+    if (target.closest('.table__choose')) {
+        const checkSquare = target.closest('.table__choose') as HTMLElement;
+        const allChooseEl = document.querySelector('.all-choose');
+        if (checkSquare === allChooseEl) {
+            const allChecker = <NodeListOf<HTMLElement>>document.querySelectorAll('.table__choose');
+            if (checkSquare.classList.contains('active')) {
+                [...allChecker].forEach((el) => {
+                    el.classList.remove('active');
+                });
+            } else {
+                [...allChecker].forEach((el) => {
+                    el.classList.add('active');
+                });
+            }
+        } else {
+            checkSquare.classList.toggle('active');
+            if (!checkSquare.classList.contains('active')) {
+                allChooseEl?.classList.remove('active');
+            }
+        }
+    }
+    console.log('target', target);
 };
 
 function copyUrl(): void {

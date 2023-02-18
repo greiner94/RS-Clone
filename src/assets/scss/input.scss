@@ -358,6 +358,11 @@
     transform: scale(1.05);
     filter: sepia(1);
   }
+// @media (max-width: 1050px) {
+//     .input {
+//         width: 32vw;
+//     }
+// }
 
 @media all and (max-width: 998px) {
     .main {
@@ -369,6 +374,10 @@
     }
     .input-wrapper {
         margin: 0 auto;
+    }
+    .input,
+    .textarea {
+        width: 360px;
     }
     .input[data-bigsize="true"] {
         width: 360px;
