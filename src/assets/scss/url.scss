@@ -240,7 +240,8 @@
 }
 
 .btn-print,
-.btn-download {
+.btn-download,
+.btn-save {
     display: inline-flex;
     -webkit-box-align: center;
     align-items: center;
@@ -251,7 +252,7 @@
     -webkit-tap-highlight-color: transparent;
     outline: 0px;
     border: 0px;
-    margin: 0px 59px 0px 0px;
+    margin: 0px 20px 0px 20px;
     cursor: pointer;
     user-select: none;
     vertical-align: middle;
@@ -268,7 +269,7 @@
     color: rgb(255, 255, 255);
     background:#fe8c25;
 
-    min-width: 225px;
+    min-width: 200px;
     font-weight: 700;
     font-size: 20px;
     line-height: 1.3;
@@ -278,6 +279,17 @@
 
 .btn-download {
     background: #02AD0B;
+}
+
+.btn-save {
+    background: #1183bc;
+    margin: 0px 20px 0px 20px;
+}
+
+@media (max-width: 1380px) {
+    .btn {
+        margin-top: 20px;
+    }
 }
 .btn:hover {
     filter: brightness(1.2);
