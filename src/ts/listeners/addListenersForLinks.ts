@@ -1,6 +1,6 @@
 export default function addListenersForLinks (){
     document.querySelector('.main__list')?.addEventListener('mouseover', (e) => {
-        console.log((e.target as HTMLElement).classList.contains(''));
+        //console.log((e.target as HTMLElement).classList.contains(''));
          if ((e.target as HTMLElement).classList.contains('website-url')) {
             (document.querySelector('.preview-box-inside__content-container.website-url')as HTMLElement).style.marginBottom = '0px';
          }

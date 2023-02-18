@@ -1,5 +1,6 @@
 .header {
- 
+  display: flex;
+  justify-content: space-between;
   max-width: 1360px;
   // margin: 0 auto;
   padding: 40px 60px 32px 60px;
@@ -20,9 +21,23 @@
   &__logo-title {
     span {
       &:last-child {
-        color: #47ABD7;
+        color: var(--color-blue);
       }
     }
   }
 
 }
+.btn-user-qr {
+  max-width: 288px;
+  height: 40px;
+  background-color:var(--color-blue);
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  border: 0px none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 15px;
+  
+}
+

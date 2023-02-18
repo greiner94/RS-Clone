@@ -48,7 +48,7 @@ a{
     }
     &__item {
         font-family: var(--breadcrumbs-font);
-        color: var(--color-light-grey);
+        color: var(--color-light-gray);
     }
     &__item.active {
         color: var(--color-dark-gray);
@@ -185,6 +185,7 @@ a{
     .main {
         &__list {
             width: min-content;
+            margin: 0 auto;
         }
         &__btn-name {
             font-size: calc(20px * 100vw / 1040px );

@@ -1,0 +1,96 @@
+.modal {
+    position: fixed;
+    max-width: 800px;
+    width: 80%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    transform: translateY(calc(50vh - 50%));
+    z-index: 2;
+    top: 0;
+    background: #ffffff;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+
+    &__close {
+        color: var(--color-white);
+        position: absolute;
+        top: -24px;
+        right: 0;
+        cursor: pointer;
+        &::after  {
+            content: url("../images/icons/user-page/close_icon.svg");
+            margin-left: 5px;
+            vertical-align: top;
+            margin-top: 2px;
+            display: inline-block;
+        }
+    }
+    &__h3 {
+        font-size: var(--h2-size);
+        font-family: var(--h2-font);
+        color: var(--color-dark-gray);
+        margin-bottom: 10px;
+    }
+    &__desc {
+        color: gray;
+    }
+    &__content-wrap {
+        margin: 30px 30px;
+        
+    }
+    &__share-url {
+        border: 1px solid var(--color-light-gray);
+        border-radius: 5px;
+        line-height: 25px;
+        padding: 10px 5px 10px 20px;
+        height: 40px;
+        overflow: hidden;
+        display: inline-block;
+        text-align: left;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        
+        &::before {
+            content: url('../images/icons/user-page/copy_icon.svg');
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 17px;
+        }
+    }
+    &__copy-btn {
+        background-color: rgb(254, 140, 37);
+        font-size: 18px;
+        font-weight: bold;
+        color: var(--color-white);
+        border: 0px none;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 10px;
+        margin-left: 5px;
+        transition: all 200ms ease-in-out;
+        &:hover {
+            background-color: darken($color: rgb(254, 140, 37), $amount: 4);
+        }
+    }
+}
+
+.button-action .btn {
+    margin-right: 0;
+}
+
+.share-url-wrap {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+}
+
+.blackout {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: rgba($color: #000000, $alpha: 0.8);
+}
