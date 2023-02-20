@@ -153,7 +153,10 @@ async function deleteQr(qrId: number) {
 }
 
 async function deleteSomeQr(idArr: number[]) {
-    await deleteArrQrCodeData(idArr);
+    try {
+        await deleteArrQrCodeData(idArr);
+        //await getTableContent();
+    } catch {}
 }
 
 export function searchQr() {

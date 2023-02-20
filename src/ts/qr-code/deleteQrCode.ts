@@ -1,7 +1,7 @@
 import { getTableContent } from '../draw-page/draw-user-page';
 import getUserID from './getUserID';
 
-export async function deleteUserQrCodeData(id: number) {
+export async function deleteUserQrCodeData(id: number): Promise<void> {
     const body = { id };
     const url = `https://qr-api-vks7.onrender.com/api/qr/ready/${getUserID()}`;
     await fetch(url, {
@@ -12,13 +12,14 @@ export async function deleteUserQrCodeData(id: number) {
         body: JSON.stringify(body),
     });
 }
-
 export async function deleteArrQrCodeData(idArr: number[]): Promise<void> {
     const deletePromiseArr = idArr.map((id) => {
-        deleteUserQrCodeData(id);
+        return deleteUserQrCodeData(id);
     });
-    await getTableContent();
-    Promise.all(deletePromiseArr).then(() => {
-        getTableContent();
-    });
+    try {
+        await Promise.all(deletePromiseArr);
+        await getTableContent();
+    } catch (error) {
+        console.error(error);
+    }
 }
