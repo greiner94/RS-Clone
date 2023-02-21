@@ -83,49 +83,6 @@ export function drawWebsiteTemplatesPage(url: string) {
     return fragmentStartPage;
 }
 
-// function drawBreadcrumbs(parentElement: HTMLElement): void {
-//     const fragmentBreadcrumbs = <DocumentFragment>document.createDocumentFragment();
-//     const ol = document.createElement('ol');
-//     const length = Breadcrumbs.length;
-//     for (let i = 0; i < length; i += 1) {
-//         const li = document.createElement('li');
-//         li.className = 'breadcrumbs__item';
-//         if (i === 0) {
-//             li.classList.add('non-active');
-//         }
-//         if (i === 1) {
-//             li.classList.add('active');
-//         }
-//         li.dataset.stage = `${i + 1}`;
-//         li.textContent = Breadcrumbs[i];
-//         ol.append(li);
-//     }
-//     ol.className = 'breadcrumbs__list';
-//     fragmentBreadcrumbs.append(ol);
-//     parentElement.append(fragmentBreadcrumbs);
-// }
-
-// function drawInputs(contentInputsSection: HTMLElement, nameOfTemlate: ITemlate) {
-//     const length = Templates.length;
-//     for (let i = 0; i < length; i++) {
-//         const contentInput = <HTMLElement>document.createElement('div');
-//         contentInput.className = 'main__content-name-input';
-//         const contentInputWrapper = <HTMLElement>document.createElement('div');
-//         contentInputWrapper.className = 'main__content-name-input-wrapper';
-//         const contentInputTitle = <HTMLElement>document.createElement('div');
-//         contentInputTitle.className = 'main__content-name-input-title';
-//         const contentInputBlock = <HTMLElement>document.createElement('div');
-//         contentInputBlock.className = 'main__content-name-input-block';
-//         contentInputTitle.innerHTML = `${nameOfTemlate.inputs[i].inputTitle}`;
-//         contentInputBlock.innerHTML = `
-//         <input type="text" required placeholder="${nameOfTemlate.inputs[i].placeholder}">`;
-//         contentInputWrapper.append(contentInputTitle);
-//         contentInputWrapper.append(contentInputBlock);
-//         contentInput.append(contentInputWrapper);
-//         contentInputsSection.append(contentInput);
-//     }
-// }
-
 export function drawSmartphoneBlock(parentElement: HTMLElement, mainContent: string, isFirstPage?: boolean): void {
     if (isFirstPage) {
         Templates.forEach((template) => {

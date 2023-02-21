@@ -31,6 +31,7 @@ export interface InputDataUrl {
 
 export enum LSParam {
     templatePage = 'page',
+    sort = 'sort',
 }
 
 export type qrTypes =

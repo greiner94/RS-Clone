@@ -1,10 +1,17 @@
 import getUserID from './getUserID';
 import { QrCodeData } from '../type/type';
 
-export default async function getUserQrCodeData(): Promise<QrCodeData[]> {
+export default function getUserQrCodeData(): Promise<QrCodeData[]> {
     const url = `https://qr-api-vks7.onrender.com/api/qr/ready/${getUserID()}`;
-    const response: Response = await fetch(url);
-    const data = await response.json();
-    const userData: QrCodeData[] = JSON.parse(JSON.stringify(data));
-    return userData;
+    return new Promise<QrCodeData[]>((resolve) => {
+        fetch(url)
+            .then((res: Response) => res.json())
+            .then((data: QrCodeData[]) => {
+                JSON.parse(JSON.stringify(data));
+                resolve(data);
+            })
+            .catch(() => {
+                resolve([]);
+            });
+    });
 }

@@ -1,9 +1,9 @@
 .header {
   display: flex;
   justify-content: space-between;
-  max-width: 1360px;
-  // margin: 0 auto;
-  padding: 40px 60px 32px 60px;
+  width: 1440px;
+  margin: 0 auto;
+  padding: 40px 10px 32px 10px;
 
   &__logo {
     display: inline-flex;
@@ -27,7 +27,7 @@
   }
 
 }
-.btn-user-qr {
+.btn.btn-user-qr {
   max-width: 288px;
   height: 40px;
   background-color:var(--color-blue);
@@ -38,6 +38,14 @@
   border-radius: 5px;
   cursor: pointer;
   padding: 0 15px;
-  
+  margin-top: 0; 
+}
+@media (max-width: 1440px) {
+  .header {
+    width: 100vw;
+    padding: 40px 60px 32px 60px;
+    //margin: 0;
+    justify-content: space-between;
+  }
 }
 
