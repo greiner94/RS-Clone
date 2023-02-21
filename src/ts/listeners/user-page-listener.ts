@@ -5,23 +5,21 @@ import { deleteArrQrCodeData, deleteUserQrCodeData } from '../qr-code/deleteQrCo
 import { getTableContent } from '../draw-page/draw-user-page';
 
 export const tableListener = function (event: MouseEvent) {
-    const target = event.target as SVGUseElement;
+    const target = event.target as HTMLElement;
     if (target.closest('.table__btn')) {
         const tableBtn = target.closest('.table__btn') as HTMLElement;
         const btnData = tableBtn.dataset.btn;
         const url = tableBtn.dataset.url as string;
-        const tableRow = target.closest('.table__row') as HTMLElement;
-        const qrWrap = <HTMLElement>tableRow.querySelector('.table__img-block');
         switch (btnData) {
             case 'share':
                 drawModalWindow(SHARE, url);
                 copyUrl();
                 break;
             case 'download':
-                download(qrWrap);
+                download(target);
                 break;
             case 'print':
-                print(qrWrap);
+                print(target);
                 break;
             case 'delete':
                 const qrId = Number(tableBtn.dataset.id) as number;
@@ -127,35 +125,56 @@ function copyUrl(): void {
         });
     });
 }
-function download(qrElement: HTMLElement) {
-    domtoimage.toPng(qrElement).then((dataUrl) => {
+function download(target: HTMLElement) {
+    const imgEl = getQRCodeHideImg(target);
+    domtoimage.toPng(imgEl).then((dataUrl) => {
+        console.log('dataUrl', dataUrl);
         const link = document.createElement('a');
         link.download = 'my-qr-code.png';
         link.href = dataUrl;
         link.click();
     });
 }
-function print(qrElement: HTMLElement) {
-    domtoimage.toPng(qrElement).then((dataUrl) => {
-        const a = window.open('', '', 'height=500, width=500');
-        if (a) {
-            a.document.write('<html>');
-            a.document.write(`<img src=${dataUrl}>`);
-            a.document.write('</body></html>');
-            a.document.close();
-            a.print();
-        }
-    });
+
+function getQRCodeHideImg(target: HTMLElement): HTMLImageElement {
+    const tableRow = target.closest('.table__row') as HTMLElement;
+    const img = <HTMLImageElement>tableRow.querySelector('.table__hide-img');
+    return img;
+}
+
+function print(target: HTMLElement) {
+    const imgEl = getQRCodeHideImg(target);
+    console.log(imgEl);
+    domtoimage
+        .toPng(imgEl)
+        .then((dataUrl) => {
+            console.log('dataUrl', dataUrl);
+            const a = window.open('', '', 'height=500, width=500');
+            if (a) {
+                a.document.write('<html>');
+                a.document.write(`<img src=${dataUrl}>`);
+                a.document.write('</body></html>');
+                a.document.close();
+                a.print();
+            }
+            console.log('print');
+        })
+        // .then(() => {
+        //     console.log('Delete img');
+        //     clearQRCodeHideImg('print');
+        // })
+        .catch();
 }
 async function deleteQr(qrId: number) {
-    await deleteUserQrCodeData(qrId);
-    await getTableContent();
+    try {
+        await deleteUserQrCodeData(qrId);
+        await getTableContent();
+    } catch {}
 }
 
 async function deleteSomeQr(idArr: number[]) {
     try {
         await deleteArrQrCodeData(idArr);
-        //await getTableContent();
     } catch {}
 }
 

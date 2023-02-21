@@ -145,9 +145,12 @@ export async function getTableContent(sortBy = '', odered = 'az'): Promise<void>
                 const spanQrImg = <HTMLElement>document.createElement('span');
                 const spanQrName = <HTMLElement>document.createElement('span');
                 const spanQrType = <HTMLElement>document.createElement('span');
+                const spanHideImg = <HTMLElement>document.createElement('span');
                 const divBtns = <HTMLElement>document.createElement('div');
                 row.className = 'table__row';
                 spanChoose.className = 'table__choose single-shoose';
+                spanHideImg.className = 'table__hide-img-wrap';
+                spanHideImg.innerHTML = `<img src=${fileName} class="table__hide-img">`;
                 spanChoose.dataset.id = `${id}`;
                 spanQrImg.className = 'table__img-block';
                 spanQrName.className = 'table__qr-name';
@@ -194,7 +197,7 @@ export async function getTableContent(sortBy = '', odered = 'az'): Promise<void>
                     </svg>
                     </svg>
                     </div>
-                    <div class="table-btn__print table__btn" data-btn="print">
+                    <div class="table-btn__print table__btn" data-btn="print"  data-url="${fileName}">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <symbol id="btn-print${ind + 1}">
                         <g clip-path="url(#clip0_204_3173)">
@@ -228,7 +231,7 @@ export async function getTableContent(sortBy = '', odered = 'az'): Promise<void>
                     </svg>
                     </svg>
                     </div>`;
-                row.append(spanChoose, spanQrImg, spanQrName, spanQrType, divBtns);
+                row.append(spanHideImg, spanChoose, spanQrImg, spanQrName, spanQrType, divBtns);
                 fragmentTableContent.append(row);
             });
         } else {

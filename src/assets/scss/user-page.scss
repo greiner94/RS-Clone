@@ -76,9 +76,15 @@
     }
     &__row {
       display: grid;
+      position: relative;
       grid-template-columns: 50px 180px 180px 180px auto;
       justify-items: center;
       align-items: center;
+    }
+    &__hide-img-wrap {
+      position: absolute;
+      top: 0;
+      left: -100%;
     }
     &__qr-img {
       width: 100px;
@@ -146,6 +152,14 @@
 .insert-btn {
   justify-self: end;
 }
+
+.hide-img-print,
+.hide-img-download {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+}
+
 @media (max-width: 790px) {
   .table {
     &__header-row {
