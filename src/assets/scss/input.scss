@@ -1,6 +1,4 @@
-.main {
-    max-width: 1440px;
-}
+
 .input-block {
     display: flex;
     flex-direction: column;
@@ -360,11 +358,11 @@
     transform: scale(1.05);
     filter: sepia(1);
   }
-// @media (max-width: 1050px) {
-//     .input {
-//         width: 32vw;
-//     }
-// }
+@media all and (max-width: 1440px) {
+    .main {
+        width: 100vw;
+    }
+}
 
 @media all and (max-width: 998px) {
     .main {
