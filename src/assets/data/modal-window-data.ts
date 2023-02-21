@@ -7,3 +7,10 @@ export const SHARE: ModalData = {
                 <button class="modal__copy-btn">copy</button>
             </div>`,
 };
+
+export const SHOW: ModalData = {
+    h3: 'Scan QR code',
+    desc: '',
+    content: `<div class="qr-wrap"><img class="modal__qr-img" src="**">
+            </div>`,
+};

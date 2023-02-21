@@ -1,8 +1,11 @@
-import { SHARE } from '../../assets/data/modal-window-data';
+import { SHARE, SHOW } from '../../assets/data/modal-window-data';
 import drawModalWindow from '../draw-page/modal-window';
 import domtoimage from 'dom-to-image';
 import { deleteArrQrCodeData, deleteUserQrCodeData } from '../qr-code/deleteQrCode';
 import { getTableContent } from '../draw-page/draw-user-page';
+import { addLSParams } from '../local-storage/add-params';
+import { LSParam } from '../type/type';
+import { getLSParams } from '../local-storage/get-params';
 
 export const tableListener = function (event: MouseEvent) {
     const target = event.target as HTMLElement;
@@ -88,6 +91,7 @@ export const tableListener = function (event: MouseEvent) {
             arrow.classList.add('up');
             arrow.classList.remove('down');
         }
+        addLSParams(LSParam.sort, ['name', odered]);
         getTableContent('name', odered);
     }
     if (target.closest('.qr-type-wrap') && qrNames.length > 0) {
@@ -106,7 +110,12 @@ export const tableListener = function (event: MouseEvent) {
             arrow.classList.add('up');
             arrow.classList.remove('down');
         }
+        addLSParams(LSParam.sort, ['type', odered]);
         getTableContent('type', odered);
+    }
+    if (target.className === 'table__qr-img') {
+        const urlImg = (<HTMLImageElement>target).src;
+        drawModalWindow(SHOW, urlImg);
     }
 };
 
@@ -168,13 +177,20 @@ function print(target: HTMLElement) {
 async function deleteQr(qrId: number) {
     try {
         await deleteUserQrCodeData(qrId);
-        await getTableContent();
+        const sortParam = getLSParams(LSParam.sort) || ['', ''];
+        console.log('sortParam', sortParam);
+        const [type, odered] = sortParam as string[];
+        await getTableContent(type, odered);
     } catch {}
 }
 
 async function deleteSomeQr(idArr: number[]) {
     try {
         await deleteArrQrCodeData(idArr);
+        const sortParam = getLSParams(LSParam.sort) || ['', ''];
+        console.log('sortParam', sortParam);
+        const [type, odered] = sortParam as string[];
+        await getTableContent(type, odered);
     } catch {}
 }
 

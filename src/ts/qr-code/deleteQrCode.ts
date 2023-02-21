@@ -1,4 +1,3 @@
-import { getTableContent } from '../draw-page/draw-user-page';
 import getUserID from './getUserID';
 
 export async function deleteUserQrCodeData(id: number): Promise<void> {
@@ -12,13 +11,13 @@ export async function deleteUserQrCodeData(id: number): Promise<void> {
         body: JSON.stringify(body),
     });
 }
+
 export async function deleteArrQrCodeData(idArr: number[]): Promise<void> {
     const deletePromiseArr = idArr.map((id) => {
         return deleteUserQrCodeData(id);
     });
     try {
         await Promise.all(deletePromiseArr);
-        await getTableContent();
     } catch (error) {
         console.error(error);
     }
