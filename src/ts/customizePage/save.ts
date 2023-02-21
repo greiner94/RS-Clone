@@ -30,21 +30,18 @@ export default function save() {
                 .then((res) => {
                     if (res.ok) {
                         saveBtn.textContent = 'Saved ✔';
-                        saveBtn.style.background = '#143b74';
                         setTimeout(() => {
                             saveBtn.textContent = 'Save';
-                            saveBtn.style.background = '#1183bc';
-                        }, 1500);
+                            saveBtn.removeAttribute('disabled');
+                        }, 2500);
                     }
                 })
-                .catch((err) => {
+                .catch(() => {
                     saveBtn.textContent = 'Error!';
-                    //console.log(err);
+                    setTimeout(() => {
+                        saveBtn.removeAttribute('disabled');
+                    }, 2500);
                 });
         });
-
-        setTimeout(() => {
-            saveBtn.removeAttribute('disabled');
-        }, 2500);
     });
 }
