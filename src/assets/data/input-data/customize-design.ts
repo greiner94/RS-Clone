@@ -144,6 +144,13 @@ const FINISH: NewBlockInputData[] = [
                         require: false,
                     },
                     {
+                        type: 'color',
+                        inputName: 'Texture color',
+                        placeholder: '#000000',
+                        bigsize: false,
+                        require: false,
+                    },
+                    {
                         type: 'checkbox',
                         inputName: 'Transparent background',
                         placeholder: '',
