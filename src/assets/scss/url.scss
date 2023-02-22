@@ -284,9 +284,6 @@
 .btn-save {
     background: #1183bc;
     margin: 0px 20px 0px 20px;
-    &:disabled {
-        filter: none !important;
-    }
 }
 
 @media (max-width: 1380px) {
@@ -298,5 +295,5 @@
     filter: brightness(1.2);
 }
 .btn:disabled {
-    filter: grayscale(100%);
+    filter: grayscale(70%);
 }
