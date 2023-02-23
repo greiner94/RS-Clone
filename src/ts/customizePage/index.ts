@@ -20,7 +20,9 @@ export default function customizePage() {
     const bgcInput = document.querySelector('#backgroundcolor') as HTMLInputElement;
     const transparentInput = document.querySelector('#transparentbackground') as HTMLInputElement;
     const colorBgcInput = bgcInput.nextElementSibling as HTMLInputElement;
-    [bgcInput, transparentInput, colorBgcInput].forEach((input) => {
+    const frameTextColorInput = document.querySelector('#texturecolor') as HTMLInputElement;
+    const colorTextInput = frameTextColorInput.nextElementSibling as HTMLInputElement;
+    [bgcInput, transparentInput, colorBgcInput, frameTextColorInput, colorTextInput].forEach((input) => {
         input.addEventListener('input', () => {
             getQrCode().then(() => {
                 renderCurrentFrameState();

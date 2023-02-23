@@ -5,6 +5,7 @@ export default function getQrStyles() {
     const stylesObject: {
         bgColor?: string;
         width?: number;
+        color?: string;
         correctionLevel?: 'L' | 'M' | 'H' | 'Q';
     } = {};
     //////// QR size
@@ -42,6 +43,11 @@ export default function getQrStyles() {
     const transparentElem = document.querySelector('#transparentbackground') as HTMLInputElement;
     if (transparentElem.checked) {
         stylesObject.bgColor = '#0000';
+    }
+    //////// texture color
+    const textureColorElem = document.querySelector('#texturecolor') as HTMLInputElement;
+    if (textureColorElem.value) {
+        stylesObject.color = textureColorElem.value;
     }
 
     return stylesObject;
