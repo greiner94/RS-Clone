@@ -56,7 +56,6 @@
     },
     "dependencies": {
         "dom-to-image": "^2.6.0",
-        "qrcode": "^1.5.1",
         "uuid": "^9.0.0"
     }
 }
