@@ -137,7 +137,6 @@ function copyUrl(): void {
 function download(target: HTMLElement) {
     const imgEl = getQRCodeHideImg(target);
     domtoimage.toPng(imgEl).then((dataUrl) => {
-        console.log('dataUrl', dataUrl);
         const link = document.createElement('a');
         link.download = 'my-qr-code.png';
         link.href = dataUrl;
@@ -153,11 +152,9 @@ function getQRCodeHideImg(target: HTMLElement): HTMLImageElement {
 
 function print(target: HTMLElement) {
     const imgEl = getQRCodeHideImg(target);
-    console.log(imgEl);
     domtoimage
         .toPng(imgEl)
         .then((dataUrl) => {
-            console.log('dataUrl', dataUrl);
             const a = window.open('', '', 'height=500, width=500');
             if (a) {
                 a.document.write('<html>');
@@ -166,19 +163,13 @@ function print(target: HTMLElement) {
                 a.document.close();
                 a.print();
             }
-            console.log('print');
         })
-        // .then(() => {
-        //     console.log('Delete img');
-        //     clearQRCodeHideImg('print');
-        // })
         .catch();
 }
 async function deleteQr(qrId: number) {
     try {
         await deleteUserQrCodeData(qrId);
         const sortParam = getLSParams(LSParam.sort) || ['', ''];
-        console.log('sortParam', sortParam);
         const [type, odered] = sortParam as string[];
         await getTableContent(type, odered);
     } catch {}
@@ -188,7 +179,6 @@ async function deleteSomeQr(idArr: number[]) {
     try {
         await deleteArrQrCodeData(idArr);
         const sortParam = getLSParams(LSParam.sort) || ['', ''];
-        console.log('sortParam', sortParam);
         const [type, odered] = sortParam as string[];
         await getTableContent(type, odered);
     } catch {}

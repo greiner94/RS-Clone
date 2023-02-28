@@ -8,7 +8,6 @@ export default function print() {
         (document.querySelector('.smartphone') as HTMLElement).style.display = 'block';
         const qrElement = document.querySelector('.template__preview-qr-wrapper') as HTMLElement;
         domtoimage.toPng(qrElement).then((dataUrl) => {
-            console.log('dataUrl', dataUrl);
             const a = window.open('', '', 'height=500, width=500');
             if (a) {
                 a.document.write('<html>');

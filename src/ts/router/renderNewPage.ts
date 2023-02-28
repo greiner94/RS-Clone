@@ -9,7 +9,6 @@ import { drawUserPage, getTableContent } from '../draw-page/draw-user-page';
 
 export default function renderNewPage(hash: string) {
     const container = document.querySelector('main') as HTMLElement;
-    console.log('hash', hash);
     if (hash === 'main') {
         container.innerHTML = '';
         container.append(drawMainPage());
