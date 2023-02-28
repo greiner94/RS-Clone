@@ -9,7 +9,7 @@ import eMail from '../images/smartphone/email.png';
 export const Templates = [
     {
         nameOfTemplate: 'WebsiteURL',
-        title: '2.Add content to the Website URL QR code',
+        title: '2. Add content to the Website URL QR code',
         mainContent: `
         <div class="preview-box-inside__content-container website-url">
             <div class="preview-box-inside__content-img">
@@ -29,7 +29,7 @@ export const Templates = [
     },
     {
         nameOfTemplate: 'Wi-Fi',
-        title: '2.Add content to the Wi-Fi QR code',
+        title: '2. Add content to the Wi-Fi QR code',
         mainContent: `
         <div class="preview-box-inside__content-container smartphone-wi-fi">
                                     <div class="preview-box-inside__content-top smartphone-wi-fi">
@@ -48,7 +48,7 @@ export const Templates = [
     },
     {
         nameOfTemplate: 'vCard',
-        title: '2.Add content to the VCard QR code',
+        title: '2. Add content to the VCard QR code',
         mainContent: `
         <div class="preview-box-inside__content-container v-card">
             <img src="${vCard}" alt="vCard">
@@ -57,7 +57,7 @@ export const Templates = [
     },
     {
         nameOfTemplate: 'SimpleText',
-        title: '2.Add content to the Simple Text QR code',
+        title: '2. Add content to the Simple Text QR code',
         mainContent: `
         <div class="preview-box-inside__content-container">
             <p class="preview-box-inside__content-text">
@@ -68,7 +68,7 @@ export const Templates = [
     },
     {
         nameOfTemplate: 'Email',
-        title: '2.Add content to the Email QR code',
+        title: '2. Add content to the Email QR code',
         mainContent: `
         <div class="preview-box-inside__content-container">
             <img src="${eMail}" alt="eMail">
@@ -77,7 +77,7 @@ export const Templates = [
     },
     {
         nameOfTemplate: 'SMS',
-        title: '2.Add content to the SMS QR code',
+        title: '2. Add content to the SMS QR code',
         mainContent: `
         <div class="preview-box-inside__content-container">
             <img class="preview-box-inside__content-img-sms" src="${sms}" alt="sms">
@@ -86,7 +86,7 @@ export const Templates = [
     },
     {
         nameOfTemplate: 'Calendar',
-        title: '2.Add content to the Calendar QR code',
+        title: '2. Add content to the Calendar QR code',
         mainContent: `
         <div class="preview-box-inside__content-container">
             <img class="preview-box-inside__content-img-calendar" src="${imgCalendar}" alt="calendar">
@@ -95,7 +95,7 @@ export const Templates = [
     },
     {
         nameOfTemplate: 'Geolocation',
-        title: '2.Add content to the Geolocation QR code',
+        title: '2. Add content to the Geolocation QR code',
         mainContent: `
         <div class="preview-box-inside__content-container">
             <img class="preview-box-inside__content" src="${location}" alt="location">
@@ -104,7 +104,7 @@ export const Templates = [
     },
     {
         nameOfTemplate: 'PhoneNumber',
-        title: '2.Add content to the Phone Number QR code',
+        title: '2. Add content to the Phone Number QR code',
         mainContent: `
         <div class="preview-box-inside__content-container">
             <img class="preview-box-inside__content" src="${number}" alt="number">
@@ -113,7 +113,7 @@ export const Templates = [
     },
     {
         nameOfTemplate: 'customize',
-        title: '3.Customize QR design',
+        title: '3. Customize QR design',
         mainContent: `
         <div class="preview-box-inside__content-container">
             <p class="preview-box-inside__content-text">

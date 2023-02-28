@@ -27,17 +27,17 @@ export function drawMainPage() {
 
 export function drawBreadcrumbs(): DocumentFragment {
     const fragmentBreadcrumbs = <DocumentFragment>document.createDocumentFragment();
-    const ol = document.createElement('ol');
+    const ul = document.createElement('ul');
     const length = Breadcrumbs.length;
     for (let i = 0; i < length; i += 1) {
         const li = document.createElement('li');
         li.className = 'breadcrumbs__item';
         li.dataset.stage = `${i + 1}`;
         li.textContent = Breadcrumbs[i];
-        ol.append(li);
+        ul.append(li);
     }
-    ol.className = 'breadcrumbs__list';
-    fragmentBreadcrumbs.append(ol);
+    ul.className = 'breadcrumbs__list';
+    fragmentBreadcrumbs.append(ul);
     return fragmentBreadcrumbs;
 }
 

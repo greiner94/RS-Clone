@@ -117,6 +117,14 @@ export const tableListener = function (event: MouseEvent) {
         const urlImg = (<HTMLImageElement>target).src;
         drawModalWindow(SHOW, urlImg);
     }
+    if (target.classList.contains('table__btns')) {
+        target.classList.add('show-btns');
+    }
+    if (target.classList.contains('show-btns__hide')) {
+        const btnsBlock = target.closest('.table__btns');
+        console.log('click');
+        btnsBlock?.classList.remove('show-btns');
+    }
 };
 
 function copyUrl(): void {
