@@ -5,7 +5,7 @@ export default function renderCurrentLogoState() {
     if (document.querySelector('.template__preview-qr_loader')) return;
     const logoElements = document.querySelectorAll('.all-input-wrapper .frame-wrapper') as NodeListOf<HTMLElement>;
     const qrImgWrapper = document.querySelector('.template__preview-qr-wrapper') as HTMLInputElement;
-    logoElements.forEach((logo) => {
+    logoElements.forEach((logo, index) => {
         if (logo.classList.contains('active')) {
             const selectCorrection = (document.querySelectorAll('.select') as NodeListOf<HTMLSelectElement>)[1];
             if (selectCorrection.value != 'Level H 30%') {
@@ -15,6 +15,10 @@ export default function renderCurrentLogoState() {
                     renderCurrentFrameState();
                     renderCurrentLogoState();
                 });
+            }
+            if (index == 0) {
+                document.querySelector('.template__preview-logo')?.remove();
+                return;
             }
 
             const image = logo.firstElementChild as HTMLElement;
