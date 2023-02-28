@@ -272,9 +272,7 @@
         clip-path: circle(16px at center);
     }
 }
-.input-bigblock-wrapper.none {
-    display: none;
-}
+
 
 .invalid-input {
     border-color: red;
@@ -436,4 +434,8 @@
     .button-action .btn {
         margin-right: 0;
     }
+}
+.input-bigblock-wrapper.none,
+input-bigblock-wrapper.upload-block.none {
+    display: none;
 }
