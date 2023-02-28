@@ -2,6 +2,7 @@ body,
 html {
     font-family: var(--text-font);
     height: 100%;
+    overflow-x: hidden;
 }
 .container {
     width: 1440px;
