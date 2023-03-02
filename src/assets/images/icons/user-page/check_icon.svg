@@ -1,0 +1,9 @@
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<symbol id="btn-check">
+<rect x="0.5" y="0.5" width="29" height="29" rx="9.5" fill="#47ABD7" stroke="#C1C1C1"/>
+<path d="M8 15.2377L12.6026 20.192L23 9" stroke="white" stroke-width="3" stroke-linecap="round"/>
+</symbol>
+    <svg class="btn-check-svg-colors">
+    <use  xlink:href="#btn-check" />
+    </svg>
+</svg>

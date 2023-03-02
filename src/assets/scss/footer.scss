@@ -1,0 +1,44 @@
+.footer {
+  background: #47ABD7;
+  border-radius: 30px;
+
+  .container {
+    max-width: 1360px;
+    padding: 0 60px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__persons {
+    font-weight: 400;
+    font-size: 22px;
+    display: flex;
+    column-gap: 40px;
+  }
+
+  a:hover {
+    filter: brightness(0.9);
+  }
+
+  &__person-link {
+    color: #fff;
+  }
+
+  @media (max-width: 750px) {
+    &__persons {
+      column-gap: 20px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    height: 150px;
+    .container {
+      flex-direction: column;
+      height: 150px;
+      justify-content: space-evenly;
+    }
+  }
+}

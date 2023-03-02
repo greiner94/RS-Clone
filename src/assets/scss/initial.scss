@@ -1,0 +1,126 @@
+body,
+html {
+    font-family: var(--text-font);
+    height: 100%;
+    overflow-x: hidden;
+}
+.container {
+    width: 1440px;
+    //margin: 0 auto;
+    padding: 0 10px;
+    @media screen and (max-width: 1440px) {
+        width: 100vw;
+        margin: 0 auto;
+    }
+    @media screen and (max-width: 1150px) {
+        padding: 0 5px;
+    }
+}
+// .header{
+//       display: flex;
+//       align-items: center;
+//       height: 80px;
+//       .container{
+//             margin: 0;
+//       }
+// }
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+.main {
+    flex: 1 1 auto;
+}
+
+.about {
+}
+.about-content {
+    display: flex;
+    margin: auto 0;
+    height: 645px;
+    align-items: center;
+    justify-content: center;
+
+    // .about-content__left
+
+    &__left {
+        flex-basis: 40%;
+        flex-grow: 0;
+        flex-shrink: 1;
+        @media screen and (max-width: 1150px) {
+            flex-basis: 40%;
+            margin-left: 20px;
+        }
+        @media screen and (max-width: 864px) {
+            flex-basis: auto;
+            width: 450px;
+        }
+    }
+
+    // .about-content__title
+
+    &__title {
+        font-size: 38px;
+        font-weight: 700;
+        color: #1e1d20;
+        // margin-top: 120px;
+        max-width: 330px;
+        margin-bottom: 45px;
+    }
+
+    // .about-content__list
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+        svg {
+            margin-right: 10px;
+        }
+    }
+
+    // .about-content__list-item
+
+    &__list-item {
+    }
+
+    // .about-content__right
+
+    &__right {
+        flex-basis: 60%;
+        flex-grow: 0;
+        flex-shrink: 1;
+        svg {
+            max-width: 90%;
+            @media screen and (max-width: 864px) {
+                display: none;
+            }
+        }
+    }
+}
+
+.btn {
+    // .btn__about
+
+    &__about {
+        max-width: 288px;
+        height: 60px;
+        background-color: rgb(254, 140, 37);
+        font-size: 22px;
+        font-weight: 700px;
+        color: white;
+        border: 0px none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 30px;
+        padding: 19px;
+        &:hover {
+            background-color: darken($color: rgb(254, 140, 37), $amount: 4);
+        }
+    }
+}

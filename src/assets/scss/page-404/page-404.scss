@@ -1,0 +1,42 @@
+.page-404 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #47abd7;
+    display: flex;
+    flex-direction: column;
+    margin-left: 150px;
+}
+@media screen and (max-width: 900px) {
+    .page-404 {
+      margin-left: 50px;
+    }
+}
+.first-line {
+    font-size: 190px;
+    margin-bottom: -30px;
+}
+.second-line {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+.third-line {
+    font-size: 18px;
+}
+.btn {
+    min-width: 231px;
+    max-width: 288px;
+    height: 60px;
+    background-color: rgb(254, 140, 37);
+    font-size: 22px;
+    font-weight: 700px;
+    color: white;
+    border: 0px none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+    padding: 19px;
+    transition: background-color ease-in-out 0.3s;
+    
+}
+.btn:hover{
+  background-color: rgb(248, 137, 40);
+}
