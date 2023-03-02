@@ -199,9 +199,9 @@ export function searchQr() {
     const nameArr = [...nameEls];
     nameArr.forEach((el, ind) => {
         if (!el.textContent?.includes(searchInput.value)) {
-            tableRows[ind].classList.add('hide');
+            tableRows[ind].classList.add('hide-row');
         } else {
-            tableRows[ind].classList.remove('hide');
+            tableRows[ind].classList.remove('hide-row');
         }
     });
 }
