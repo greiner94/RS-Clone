@@ -13,6 +13,17 @@ RS-Clone provides the following features:
 - Using PostCSS to compile CSS stylesheets 
 - Using Sass for styling components 
 
+## Used in development
+
+Technical stack:
+- HTML5, SCSS, Typescript
+- Webpack as a module bundler
+
+Libraries:
+- uuid
+- qrcode (backend)
+- dom-to-image
+
 ## Installation & Usage 
 
 To install and use RS-Clone, you need to have Node.js installed on your machine. Then, run the following commands in your terminal: 
